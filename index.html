@@ -1,523 +1,521 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clustering OSN-K Informatika Indonesia</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clustering OSN-K Informatika 2021–2025</title>
   <style>
     :root {
       --bg: #0b1020;
-      --panel: #111830;
-      --panel-2: #151f3d;
-      --text: #eef2ff;
-      --muted: #aab4d6;
-      --line: rgba(255,255,255,.10);
-      --accent: #7c3aed;
-      --accent-2: #22c55e;
-      --accent-3: #f59e0b;
-      --accent-4: #38bdf8;
-      --danger: #fb7185;
-      --chip: rgba(255,255,255,.08);
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --radius: 22px;
+      --panel: #11182d;
+      --panel-2: #171f38;
+      --text: #eaf0ff;
+      --muted: #a8b3cf;
+      --line: rgba(255,255,255,0.09);
+      --accent: #7aa2ff;
+      --accent-2: #8be9fd;
+      --chip: rgba(122,162,255,0.12);
+      --chip-border: rgba(122,162,255,0.30);
+      --shadow: 0 20px 40px rgba(0,0,0,0.28);
+      --radius: 18px;
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background:
-      radial-gradient(1200px 600px at 20% 0%, rgba(124,58,237,.22), transparent 60%),
-      radial-gradient(1000px 500px at 100% 10%, rgba(56,189,248,.14), transparent 55%),
-      linear-gradient(180deg, #070b16, #0b1020 40%, #0b1020);
-      color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, rgba(122,162,255,0.12), transparent 30%), var(--bg);
+      color: var(--text);
+      line-height: 1.5;
     }
-    a { color: inherit; }
-    .wrap { max-width: 1400px; margin: 0 auto; padding: 28px 18px 54px; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 24px; }
     .hero {
-      display: grid;
-      grid-template-columns: 1.4fr .9fr;
-      gap: 18px;
-      align-items: stretch;
-      margin-bottom: 18px;
-    }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
       border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: 28px;
+      padding: 26px;
       box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .hero-main {
-      padding: 28px;
-      position: relative;
     }
     .eyebrow {
-      display: inline-flex;
-      gap: 8px; align-items: center;
-      padding: 8px 12px;
-      background: var(--chip);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 18px;
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--accent-2); font-weight: 700; letter-spacing: .04em;
+      text-transform: uppercase; font-size: .78rem;
+      margin-bottom: 12px;
     }
-    h1 { margin: 0 0 12px; font-size: clamp(30px, 4vw, 52px); line-height: 1.04; letter-spacing: -.03em; }
-    .subtitle { color: var(--muted); max-width: 70ch; font-size: 15px; line-height: 1.7; }
-    .hero-side {
-      padding: 22px;
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.05;
+    }
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      max-width: 1000px;
+      font-size: 1rem;
+    }
+    .grid {
       display: grid;
-      gap: 12px;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     }
     .stat {
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px;
-      min-height: 100px;
+      grid-column: span 3;
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .stat .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
-    .stat .v { font-size: 28px; font-weight: 700; margin-top: 8px; }
-    .stat .s { font-size: 13px; color: var(--muted); margin-top: 6px; }
-    .grid { display: grid; gap: 18px; }
-    .toolbar {
-      display: grid;
-      grid-template-columns: 1.1fr .8fr .6fr .8fr .7fr;
-      gap: 12px;
-      padding: 18px;
+    .stat .label { color: var(--muted); font-size: .82rem; }
+    .stat .value { font-size: 2rem; font-weight: 800; margin-top: 4px; }
+    .stat .hint { color: var(--muted); font-size: .88rem; }
+    .full { grid-column: 1 / -1; }
+    .two-thirds { grid-column: span 8; }
+    .one-third { grid-column: span 4; }
+    .section-title {
+      margin: 4px 0 12px;
+      font-size: 1.2rem;
     }
-    .ctrl {
-      background: #10172d;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 16px;
-      padding: 12px 14px;
-      color: var(--text);
-      width: 100%;
-      outline: none;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+    .muted { color: var(--muted); }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 10px; border-radius: 999px;
+      background: var(--chip); border: 1px solid var(--chip-border);
+      color: #dbe6ff; font-size: .8rem; margin: 0 6px 6px 0;
+      white-space: nowrap;
     }
-    .ctrl option {
-      background: #0f172a;
-      color: #eef2ff;
-    }
-    .ctrl::placeholder { color: #c7d2fe; }
-    .label {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-      margin: 0 0 8px 2px;
-    }
-    .section { padding: 18px; }
-    .section h2 { margin: 0 0 8px; font-size: 22px; }
-    .section p.desc { margin: 0 0 14px; color: var(--muted); line-height: 1.6; }
-    .bars {
-      display: grid;
-      gap: 10px;
-    }
+    .bars { display: grid; gap: 10px; }
     .bar-row {
       display: grid;
-      grid-template-columns: 240px 1fr 74px;
+      grid-template-columns: 230px 1fr 64px 80px;
       gap: 12px;
       align-items: center;
     }
-    .bar-name { color: var(--text); font-size: 14px; }
     .bar-track {
-      background: rgba(255,255,255,.06);
-      border-radius: 999px;
       height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,0.05);
     }
-    .bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), #4f46e5); }
-    .bar-fill.year { background: linear-gradient(90deg, #06b6d4, #3b82f6); }
-    .bar-fill.diff { background: linear-gradient(90deg, #f59e0b, #ef4444); }
-    .bar-value { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .chips {
-      display: flex; flex-wrap: wrap; gap: 8px;
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
     }
-    .chip {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 12px; border-radius: 999px;
-      background: var(--chip); border: 1px solid var(--line);
-      color: var(--text); font-size: 13px; cursor: pointer;
-      user-select: none;
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
     }
-    .chip.active { outline: 2px solid rgba(124,58,237,.55); background: rgba(124,58,237,.18); }
-    .table-wrap { overflow: auto; border-top: 1px solid var(--line); }
-    table {
-      width: 100%; border-collapse: collapse; min-width: 980px;
+    .input, select {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 12px 14px;
+      outline: none;
+      min-width: 180px;
     }
-    thead th {
-      text-align: left; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
-      color: var(--muted); padding: 14px 16px; border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      position: sticky; top: 0; backdrop-filter: blur(10px);
-      z-index: 2;
+    .input::placeholder { color: #9aa6c3; }
+    .btn {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 12px 14px;
+      cursor: pointer;
     }
-    tbody td {
-      padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.07); vertical-align: top;
-      font-size: 14px;
+    .btn:hover, .input:focus, select:focus {
+      border-color: rgba(122,162,255,0.5);
+      box-shadow: 0 0 0 3px rgba(122,162,255,0.12);
     }
-    tbody tr:hover { background: rgba(255,255,255,.03); }
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 10px; border-radius: 999px; font-size: 12px;
-      background: rgba(255,255,255,.07); border: 1px solid var(--line);
+    details.year {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.03);
+      overflow: hidden;
+    }
+    details.year[open] { box-shadow: var(--shadow); }
+    details.year > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    }
+    details.year > summary::-webkit-details-marker { display: none; }
+    .year-left {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .year-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 80px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(122,162,255,0.16);
+      border: 1px solid rgba(122,162,255,0.35);
+      font-weight: 800;
+    }
+    .year-meta { color: var(--muted); font-size: .92rem; }
+    .year-link {
+      padding: 9px 12px; border-radius: 12px;
+      border: 1px solid rgba(122,162,255,0.3);
+      background: rgba(122,162,255,0.12);
+      font-size: .9rem;
       white-space: nowrap;
     }
-    .badge.c1 { background: rgba(56,189,248,.12); }
-    .badge.c2 { background: rgba(34,197,94,.12); }
-    .badge.c3 { background: rgba(245,158,11,.12); }
-    .badge.c4 { background: rgba(168,85,247,.12); }
-    .badge.c5 { background: rgba(249,115,22,.12); }
-    .badge.c6 { background: rgba(251,113,133,.12); }
-    .badge.c7 { background: rgba(99,102,241,.12); }
-    .badge.c8 { background: rgba(14,165,233,.12); }
-    .badge.c9 { background: rgba(20,184,166,.12); }
-    .badge.c10 { background: rgba(244,63,94,.12); }
-    .badge.c11 { background: rgba(147,51,234,.12); }
-    .muted { color: var(--muted); }
-    .pdf-link {
-      color: #e0e7ff;
-      text-decoration: none;
-      font-weight: 700;
-      display: inline-block;
-      transition: color .15s ease, transform .15s ease, text-decoration-color .15s ease;
-    }
-    .pdf-link:hover {
-      color: #93c5fd;
-      text-decoration: underline;
-      transform: translateY(-1px);
-    }
-    .pdf-link:focus-visible {
-      outline: 2px solid #93c5fd;
-      outline-offset: 2px;
-      border-radius: 6px;
-    }
-    .toplist {
-      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px;
-    }
-    .mini {
-      padding: 16px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255,255,255,.04);
-    }
-    .mini .n { font-size: 28px; font-weight: 700; margin-top: 8px; }
-    .mini .sub { color: var(--muted); font-size: 13px; margin-top: 6px; line-height: 1.5; }
-    .footer-note {
-      color: var(--muted); font-size: 13px; line-height: 1.6; padding: 18px;
+    .table-wrap {
+      overflow-x: auto;
       border-top: 1px solid var(--line);
     }
-    .right {
-      text-align: right;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1060px;
     }
-    @media (max-width: 1100px) {
-      .hero { grid-template-columns: 1fr; }
-      .toolbar { grid-template-columns: 1fr 1fr; }
-      .toplist { grid-template-columns: 1fr; }
-      .bar-row { grid-template-columns: 1fr; }
-      .bar-value { text-align: left; }
+    thead th {
+      position: sticky;
+      top: 0;
+      background: #12182b;
+      z-index: 1;
+      text-align: left;
+      padding: 12px 14px;
+      font-size: .82rem;
+      color: #c8d3f2;
+      border-bottom: 1px solid var(--line);
     }
-    @media (max-width: 720px) {
-      .wrap { padding: 14px 12px 36px; }
-      .hero-main, .section, .toolbar { padding: 14px; }
-      h1 { font-size: 30px; }
-      .toolbar { grid-template-columns: 1fr; }
+    tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      vertical-align: top;
+      font-size: .94rem;
+    }
+    tbody tr:hover { background: rgba(255,255,255,0.03); }
+    .q-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid var(--chip-border);
+      font-weight: 700;
+    }
+    .title-cell { font-weight: 650; }
+    .small { font-size: .82rem; color: var(--muted); }
+    .diff {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 10px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: .82rem;
+      white-space: nowrap;
+    }
+    .d1 { background: rgba(154,230,180,0.10); }
+    .d2 { background: rgba(138,233,253,0.10); }
+    .d3 { background: rgba(122,162,255,0.12); }
+    .d4 { background: rgba(246,193,119,0.12); }
+    .d5 { background: rgba(255,158,158,0.12); }
+    .footer {
+      margin: 24px 0 12px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .method-grid .card p { margin: 0; color: var(--muted); }
+    @media (max-width: 980px) {
+      .stat, .two-thirds, .one-third { grid-column: 1 / -1; }
+      .method-grid { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 1fr; gap: 8px; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="hero">
-      <div class="card hero-main">
-        <div class="eyebrow">Clustering tematik • OSN-K Informatika Indonesia • 2021–2025</div>
-        <h1>Peta tema soal OSN-K Informatika</h1>
-        <div class="subtitle">
-          Website ini mengelompokkan setiap nomor soal ke dalam cluster algoritmik yang lazim dipakai di computer science,
-          lalu menampilkan statistik persentase dan ranking tingkat kesulitan yang diestimasi dari struktur soal.
-        </div>
-      </div>
-      <div class="card hero-side">
-        <div class="stat">
-          <div class="k">Total soal</div>
-          <div class="v" id="totalQuestions">185</div>
-          <div class="s">Lima tahun ujian</div>
-        </div>
-        <div class="stat">
-          <div class="k">Rata-rata difficulty</div>
-          <div class="v" id="avgDifficulty">3.52</div>
-          <div class="s">Skala 1.0–5.0</div>
-        </div>
-        <div class="stat">
-          <div class="k">Cluster dominan</div>
-          <div class="v" id="topCluster">C6</div>
-          <div class="s">Program tracing / recursion</div>
-        </div>
-        <div class="stat">
-          <div class="k">Tahun</div>
-          <div class="v">5</div>
-          <div class="s">2021 s.d. 2025</div>
-        </div>
-      </div>
-    </div>
+    <section class="hero">
+      <div class="eyebrow">OSN-K Informatika • Clustering akademik</div>
+      <h1>Clustering Soal OSN-K Informatika 2021–2025</h1>
+      <p class="subtitle">
+        Pemetaan per nomor soal ke klaster topik yang selaras dengan silabus OSN-K dan kerangka IOI,
+        disusun sebagai klasifikasi semantik yang interpretable, bukan sekadar pengelompokan leksikal.
+      </p>
 
-    <div class="card section">
-      <h2>Filter & urutkan</h2>
-      <p class="desc">Gunakan pencarian untuk menyaring nomor soal, judul, tahun, atau cluster. Opsi sortir dapat dipakai untuk melihat soal tersulit terlebih dahulu.</p>
-      <div class="toolbar">
-        <div>
-          <label class="label">Cari</label>
-          <input id="search" class="ctrl" placeholder="contoh: graph, 2025, Soal 26" />
+      <div class="grid">
+        <div class="card stat">
+          <div class="label">Total soal yang dianalisis</div>
+          <div class="value">185</div>
+          <div class="hint">5 naskah, 2021–2025</div>
         </div>
-        <div>
-          <label class="label">Tahun</label>
-          <select id="yearFilter" class="ctrl"></select>
+        <div class="card stat">
+          <div class="label">Jumlah klaster utama</div>
+          <div class="value">14</div>
+          <div class="hint">Taxonomy berbasis konsep</div>
         </div>
-        <div>
-          <label class="label">Cluster</label>
-          <select id="clusterFilter" class="ctrl"></select>
+        <div class="card stat">
+          <div class="label">Rata-rata tingkat kesulitan</div>
+          <div class="value">3.09</div>
+          <div class="hint">Skala 1–5</div>
         </div>
-        <div>
-          <label class="label">Urutkan</label>
-          <select id="sortBy" class="ctrl">
-            <option value="year-asc">Tahun naik</option>
-            <option value="year-desc">Tahun turun</option>
-            <option value="no-asc">Nomor naik</option>
-            <option value="difficulty-desc">Difficulty tertinggi</option>
-            <option value="difficulty-asc">Difficulty terendah</option>
+        <div class="card stat">
+          <div class="label">Soal tersulit (level 5)</div>
+          <div class="value">6</div>
+          <div class="hint">Kode, rekursi, DP, dan counting lanjutan</div>
+        </div>
+
+        <div class="card two-thirds">
+          <div class="section-title">Distribusi klaster</div>
+          <div class="bars" id="clusterBars"></div>
+        </div>
+        <div class="card one-third">
+          <div class="section-title">Distribusi kesulitan</div>
+          <div class="bars" id="difficultyBars"></div>
+        </div>
+        <div class="card full">
+          <div class="section-title">Metode clustering dan pengurutan kesulitan</div>
+          <div class="method-grid">
+            <div class="card">
+              <h3 style="margin-top:0">1) Semantic topic clustering</h3>
+              <p>
+                Setiap soal dipetakan ke satu klaster dominan berdasarkan primitive komputasi utama:
+                logika, pencacahan, graf, greedy, number theory, string, simulasi grid, tracing kode, DP,
+                geometri, game theory, atau search.
+              </p>
+            </div>
+            <div class="card">
+              <h3 style="margin-top:0">2) Syllabus alignment</h3>
+              <p>
+                Penamaan klaster dan sublabel diselaraskan dengan silabus OSN-K
+                dan topik IOI seperti arithmetic/geometry, counting, graphs and trees,
+                greedy, divide-and-conquer, backtracking, dan dynamic programming.
+              </p>
+            </div>
+            <div class="card">
+              <h3 style="margin-top:0">3) Difficulty ordering</h3>
+              <p>
+                Skor kesulitan memakai skala 1–5 berbasis beban inferensi:
+                langkah langsung → multi-step → invariant/rekursi/code tracing → kombinasi
+                konsep/struktur data → soal yang memerlukan analisis lanjutan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid" style="margin-top: 16px;">
+      <div class="card full">
+        <div class="section-title">Filter dan pencarian</div>
+        <div class="toolbar">
+          <input id="search" class="input" type="text" placeholder="Cari tahun, nomor soal, judul, klaster, atau catatan..." />
+          <select id="yearFilter"></select>
+          <select id="clusterFilter"></select>
+          <select id="sortFilter">
+            <option value="default">Urutan asli</option>
+            <option value="difficulty_desc">Kesulitan tertinggi → terendah</option>
+            <option value="difficulty_asc">Kesulitan terendah → tertinggi</option>
+            <option value="year_q">Tahun lalu nomor soal</option>
+            <option value="cluster">Klaster A → Z</option>
           </select>
-        </div>
-        <div>
-          <label class="label">Tampilan</label>
-          <button id="resetBtn" class="ctrl" style="cursor:pointer;">Reset filter</button>
+          <button class="btn" id="resetBtn">Reset</button>
         </div>
       </div>
     </div>
 
-    <div class="card section">
-      <h2>Distribusi cluster</h2>
-      <p class="desc">Persentase dihitung dari seluruh 185 soal. Karena ini adaptasi pedagogis, beberapa batas cluster bersifat heuristik.</p>
-      <div class="bars" id="clusterBars"></div>
-    </div>
+    <div id="yearContainer"></div>
 
-    <div class="card section">
-      <h2>Distribusi per tahun</h2>
-      <div class="bars" id="yearBars"></div>
-    </div>
-
-    <div class="card section">
-      <h2>Ranking difficulty teratas</h2>
-      <p class="desc">Urutan di bawah ini mengikuti estimasi difficulty dari tiap soal. Soal dengan kode program panjang, transformasi rekursif, dan penalaran multi-langkah diberi nilai lebih tinggi.</p>
-      <div class="toplist" id="topList"></div>
-    </div>
-
-    <div class="card section" style="padding-bottom: 0;">
-      <h2>Daftar soal terklasifikasi</h2>
-      <p class="desc">Setiap baris mewakili satu nomor soal.</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Tahun</th>
-              <th>No.</th>
-              <th>Judul / blok</th>
-              <th>Cluster</th>
-              <th>Difficulty</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody"></tbody>
-        </table>
-      </div>
-      <div class="footer-note">
-        Catatan: difficulty adalah estimasi pedagogis, bukan skor resmi dari penyelenggara. Struktur website ini cocok untuk GitHub Pages karena hanya memakai HTML, CSS, dan JavaScript statis.
-      </div>
+    <div class="footer">
+      Sumber utama: arsip soal OSN-K Informatika 2021–2025, silabus OSN-K bidang Informatika, dan IOI Syllabus 2025.
+      Setiap nomor soal dapat diklik untuk membuka PDF pada tab baru.
     </div>
   </div>
 
-<script>
-const data = [{"year": 2025, "no": 1, "cluster": "C1", "title": "Labirin Berarah", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Spatial / path / grid", "display": "Soal 1: Labirin Berarah"}, {"year": 2025, "no": 2, "cluster": "C2", "title": "Keluar-Masuk Kandang", "difficulty": 2.5, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 2: Keluar-Masuk Kandang"}, {"year": 2025, "no": 3, "cluster": "C1", "title": "Komando Bebek", "difficulty": 2.8, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Spatial / path / grid", "display": "Soal 3: Komando Bebek"}, {"year": 2025, "no": 4, "cluster": "C3", "title": "Dari Aceh Sampai Bakauheni", "difficulty": 2.6, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Greedy / optimization", "display": "Soal 4: Dari Aceh Sampai Bakauheni"}, {"year": 2025, "no": 5, "cluster": "C2", "title": "Agen BB007", "difficulty": 2.7, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 5: Agen BB007"}, {"year": 2025, "no": 6, "cluster": "C11", "title": "Pencarian Koin", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Search / binary search", "display": "Soal 6: Pencarian Koin"}, {"year": 2025, "no": 7, "cluster": "C1", "title": "Penerangan Ruangan", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Spatial / path / grid", "display": "Soal 7: Penerangan Ruangan"}, {"year": 2025, "no": 8, "cluster": "C4", "title": "Rangkaian Mantra", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "String / permutation / transformation", "display": "Soal 8: Rangkaian Mantra"}, {"year": 2025, "no": 9, "cluster": "C3", "title": "Berlatih OSN", "difficulty": 2.4, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Greedy / optimization", "display": "Soal 9: Berlatih OSN"}, {"year": 2025, "no": 10, "cluster": "C2", "title": "Dua dari Tujuh Telur Bebek", "difficulty": 2.7, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 10: Dua dari Tujuh Telur Bebek"}, {"year": 2025, "no": 11, "cluster": "C6", "title": "Mesin BCS", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 11: Mesin BCS"}, {"year": 2025, "no": 12, "cluster": "C6", "title": "Mesin BCS", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 12: Mesin BCS"}, {"year": 2025, "no": 13, "cluster": "C6", "title": "Mesin BCS", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 13: Mesin BCS"}, {"year": 2025, "no": 14, "cluster": "C1", "title": "Perjalanan ke Timur", "difficulty": 3.8, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Spatial / path / grid", "display": "Soal 14: Perjalanan ke Timur"}, {"year": 2025, "no": 15, "cluster": "C1", "title": "Perjalanan ke Timur", "difficulty": 3.8, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Spatial / path / grid", "display": "Soal 15: Perjalanan ke Timur"}, {"year": 2025, "no": 16, "cluster": "C1", "title": "Perjalanan ke Timur", "difficulty": 3.8, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Spatial / path / grid", "display": "Soal 16: Perjalanan ke Timur"}, {"year": 2025, "no": 17, "cluster": "C2", "title": "Menyimpan Kotak Penyimpanan", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 17: Menyimpan Kotak Penyimpanan"}, {"year": 2025, "no": 18, "cluster": "C2", "title": "Menyimpan Kotak Penyimpanan", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 18: Menyimpan Kotak Penyimpanan"}, {"year": 2025, "no": 19, "cluster": "C2", "title": "Menyimpan Kotak Penyimpanan", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 19: Menyimpan Kotak Penyimpanan"}, {"year": 2025, "no": 20, "cluster": "C4", "title": "Kartu Huruf Ajaib", "difficulty": 3.3, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "String / permutation / transformation", "display": "Soal 20: Kartu Huruf Ajaib"}, {"year": 2025, "no": 21, "cluster": "C4", "title": "Kartu Huruf Ajaib", "difficulty": 3.3, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "String / permutation / transformation", "display": "Soal 21: Kartu Huruf Ajaib"}, {"year": 2025, "no": 22, "cluster": "C4", "title": "Kartu Huruf Ajaib", "difficulty": 3.3, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "String / permutation / transformation", "display": "Soal 22: Kartu Huruf Ajaib"}, {"year": 2025, "no": 23, "cluster": "C5", "title": "Bebek Gayung", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Number theory / modulo", "display": "Soal 23: Bebek Gayung"}, {"year": 2025, "no": 24, "cluster": "C5", "title": "Bebek Gayung", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Number theory / modulo", "display": "Soal 24: Bebek Gayung"}, {"year": 2025, "no": 25, "cluster": "C5", "title": "Bebek Gayung", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Number theory / modulo", "display": "Soal 25: Bebek Gayung"}, {"year": 2025, "no": 26, "cluster": "C5", "title": "Modulo Tiga", "difficulty": 4.1, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Number theory / modulo", "display": "Soal 26: Modulo Tiga"}, {"year": 2025, "no": 27, "cluster": "C5", "title": "Modulo Tiga", "difficulty": 4.1, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Number theory / modulo", "display": "Soal 27: Modulo Tiga"}, {"year": 2025, "no": 28, "cluster": "C5", "title": "Modulo Tiga", "difficulty": 4.1, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Number theory / modulo", "display": "Soal 28: Modulo Tiga"}, {"year": 2025, "no": 29, "cluster": "C6", "title": "FUN dan GSI", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 29: FUN dan GSI"}, {"year": 2025, "no": 30, "cluster": "C6", "title": "FUN dan GSI", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 30: FUN dan GSI"}, {"year": 2025, "no": 31, "cluster": "C6", "title": "FUN dan GSI", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 31: FUN dan GSI"}, {"year": 2025, "no": 32, "cluster": "C4", "title": "Dua String", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "String / permutation / transformation", "display": "Soal 32: Dua String"}, {"year": 2025, "no": 33, "cluster": "C4", "title": "Dua String", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "String / permutation / transformation", "display": "Soal 33: Dua String"}, {"year": 2025, "no": 34, "cluster": "C4", "title": "Dua String", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "String / permutation / transformation", "display": "Soal 34: Dua String"}, {"year": 2025, "no": 35, "cluster": "C6", "title": "Rahasia Petak 5x5", "difficulty": 4.5, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 35: Rahasia Petak 5x5"}, {"year": 2025, "no": 36, "cluster": "C6", "title": "Rahasia Petak 5x5", "difficulty": 4.5, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 36: Rahasia Petak 5x5"}, {"year": 2025, "no": 37, "cluster": "C6", "title": "Rahasia Petak 5x5", "difficulty": 4.5, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 37: Rahasia Petak 5x5"}, {"year": 2025, "no": 38, "cluster": "C6", "title": "Merah-Putih Nusantara", "difficulty": 4.6, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 38: Merah-Putih Nusantara"}, {"year": 2025, "no": 39, "cluster": "C6", "title": "Merah-Putih Nusantara", "difficulty": 4.6, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 39: Merah-Putih Nusantara"}, {"year": 2025, "no": 40, "cluster": "C6", "title": "Merah-Putih Nusantara", "difficulty": 4.6, "yearLabel": "OSN-K Informatika 2025", "clusterLabel": "Program tracing / recursion", "display": "Soal 40: Merah-Putih Nusantara"}, {"year": 2024, "no": 1, "cluster": "C1", "title": "Mencari OSN", "difficulty": 2.5, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Spatial / path / grid", "display": "Soal 1: Mencari OSN"}, {"year": 2024, "no": 2, "cluster": "C7", "title": "Mengurutkan Rutinitas", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 2: Mengurutkan Rutinitas"}, {"year": 2024, "no": 3, "cluster": "C3", "title": "Berebut Pizza", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Greedy / optimization", "display": "Soal 3: Berebut Pizza"}, {"year": 2024, "no": 4, "cluster": "C1", "title": "Bebek dan Lampu", "difficulty": 2.8, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Spatial / path / grid", "display": "Soal 4: Bebek dan Lampu"}, {"year": 2024, "no": 5, "cluster": "C1", "title": "Parade Bebek", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Spatial / path / grid", "display": "Soal 5: Parade Bebek"}, {"year": 2024, "no": 6, "cluster": "C1", "title": "Menggambar Denah", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Spatial / path / grid", "display": "Soal 6: Menggambar Denah"}, {"year": 2024, "no": 7, "cluster": "C6", "title": "Mesin Pengurutan Kelereng", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 7: Mesin Pengurutan Kelereng"}, {"year": 2024, "no": 8, "cluster": "C7", "title": "Komite Audit", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 8: Komite Audit"}, {"year": 2024, "no": 9, "cluster": "C10", "title": "Mengambil Daun", "difficulty": 3.5, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Game theory / adversarial", "display": "Soal 9: Mengambil Daun"}, {"year": 2024, "no": 10, "cluster": "C1", "title": "Perjalanan Bebek", "difficulty": 2.8, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Spatial / path / grid", "display": "Soal 10: Perjalanan Bebek"}, {"year": 2024, "no": 11, "cluster": "C2", "title": "Pertandingan Sepak Bola", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 11: Pertandingan Sepak Bola"}, {"year": 2024, "no": 12, "cluster": "C2", "title": "Pertandingan Sepak Bola", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 12: Pertandingan Sepak Bola"}, {"year": 2024, "no": 13, "cluster": "C2", "title": "Pertandingan Sepak Bola", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 13: Pertandingan Sepak Bola"}, {"year": 2024, "no": 14, "cluster": "C7", "title": "Pertemanan Ayam", "difficulty": 3.5, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 14: Pertemanan Ayam"}, {"year": 2024, "no": 15, "cluster": "C7", "title": "Pertemanan Ayam", "difficulty": 3.5, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 15: Pertemanan Ayam"}, {"year": 2024, "no": 16, "cluster": "C7", "title": "Pertemanan Ayam", "difficulty": 3.5, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 16: Pertemanan Ayam"}, {"year": 2024, "no": 17, "cluster": "C2", "title": "Mencicipi Biskuit", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 17: Mencicipi Biskuit"}, {"year": 2024, "no": 18, "cluster": "C2", "title": "Mencicipi Biskuit", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 18: Mencicipi Biskuit"}, {"year": 2024, "no": 19, "cluster": "C2", "title": "Mencicipi Biskuit", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 19: Mencicipi Biskuit"}, {"year": 2024, "no": 20, "cluster": "C8", "title": "Menggelindingkan Meja", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 20: Menggelindingkan Meja"}, {"year": 2024, "no": 21, "cluster": "C8", "title": "Menggelindingkan Meja", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 21: Menggelindingkan Meja"}, {"year": 2024, "no": 22, "cluster": "C8", "title": "Menggelindingkan Meja", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 22: Menggelindingkan Meja"}, {"year": 2024, "no": 23, "cluster": "C1", "title": "Permainan Kursi di Kelas", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Spatial / path / grid", "display": "Soal 23: Permainan Kursi di Kelas"}, {"year": 2024, "no": 24, "cluster": "C1", "title": "Permainan Kursi di Kelas", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Spatial / path / grid", "display": "Soal 24: Permainan Kursi di Kelas"}, {"year": 2024, "no": 25, "cluster": "C1", "title": "Permainan Kursi di Kelas", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Spatial / path / grid", "display": "Soal 25: Permainan Kursi di Kelas"}, {"year": 2024, "no": 26, "cluster": "C6", "title": "Cek dan Ricek", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 26: Cek dan Ricek"}, {"year": 2024, "no": 27, "cluster": "C6", "title": "Cek dan Ricek", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 27: Cek dan Ricek"}, {"year": 2024, "no": 28, "cluster": "C6", "title": "Cek dan Ricek", "difficulty": 4.0, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 28: Cek dan Ricek"}, {"year": 2024, "no": 29, "cluster": "C6", "title": "Start dan Finish?", "difficulty": 4.1, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 29: Start dan Finish?"}, {"year": 2024, "no": 30, "cluster": "C6", "title": "Start dan Finish?", "difficulty": 4.1, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 30: Start dan Finish?"}, {"year": 2024, "no": 31, "cluster": "C6", "title": "Start dan Finish?", "difficulty": 4.1, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 31: Start dan Finish?"}, {"year": 2024, "no": 32, "cluster": "C6", "title": "Ke Kiri dan Kanan", "difficulty": 4.1, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 32: Ke Kiri dan Kanan"}, {"year": 2024, "no": 33, "cluster": "C6", "title": "Ke Kiri dan Kanan", "difficulty": 4.1, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 33: Ke Kiri dan Kanan"}, {"year": 2024, "no": 34, "cluster": "C6", "title": "Ke Kiri dan Kanan", "difficulty": 4.1, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 34: Ke Kiri dan Kanan"}, {"year": 2024, "no": 35, "cluster": "C6", "title": "Panas Dingin", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 35: Panas Dingin"}, {"year": 2024, "no": 36, "cluster": "C6", "title": "Panas Dingin", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 36: Panas Dingin"}, {"year": 2024, "no": 37, "cluster": "C6", "title": "Panas Dingin", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 37: Panas Dingin"}, {"year": 2024, "no": 38, "cluster": "C6", "title": "Fungsi Pendek", "difficulty": 4.4, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 38: Fungsi Pendek"}, {"year": 2024, "no": 39, "cluster": "C6", "title": "Fungsi Pendek", "difficulty": 4.4, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 39: Fungsi Pendek"}, {"year": 2024, "no": 40, "cluster": "C6", "title": "Fungsi Pendek", "difficulty": 4.4, "yearLabel": "OSN-K Informatika 2024", "clusterLabel": "Program tracing / recursion", "display": "Soal 40: Fungsi Pendek"}, {"year": 2023, "no": 1, "cluster": "C2", "title": "Analitika / Logika", "difficulty": 2.4, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 1: Analitika / Logika"}, {"year": 2023, "no": 2, "cluster": "C2", "title": "Analitika / Logika", "difficulty": 2.4, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 2: Analitika / Logika"}, {"year": 2023, "no": 3, "cluster": "C2", "title": "Analitika / Logika", "difficulty": 2.4, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 3: Analitika / Logika"}, {"year": 2023, "no": 4, "cluster": "C3", "title": "Maraton Bebek", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Greedy / optimization", "display": "Soal 4: Maraton Bebek"}, {"year": 2023, "no": 5, "cluster": "C2", "title": "Himpunan / Counting", "difficulty": 2.8, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 5: Himpunan / Counting"}, {"year": 2023, "no": 6, "cluster": "C2", "title": "Himpunan / Counting", "difficulty": 2.8, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 6: Himpunan / Counting"}, {"year": 2023, "no": 7, "cluster": "C4", "title": "String Berlapis", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "String / permutation / transformation", "display": "Soal 7: String Berlapis"}, {"year": 2023, "no": 8, "cluster": "C4", "title": "String Berlapis", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "String / permutation / transformation", "display": "Soal 8: String Berlapis"}, {"year": 2023, "no": 9, "cluster": "C5", "title": "Divisibility / Sequence", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Number theory / modulo", "display": "Soal 9: Divisibility / Sequence"}, {"year": 2023, "no": 10, "cluster": "C5", "title": "Divisibility / Sequence", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Number theory / modulo", "display": "Soal 10: Divisibility / Sequence"}, {"year": 2023, "no": 11, "cluster": "C5", "title": "Divisibility / Sequence", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Number theory / modulo", "display": "Soal 11: Divisibility / Sequence"}, {"year": 2023, "no": 12, "cluster": "C7", "title": "Rute Bus", "difficulty": 3.5, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 12: Rute Bus"}, {"year": 2023, "no": 13, "cluster": "C8", "title": "Garis dan Daerah", "difficulty": 3.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 13: Garis dan Daerah"}, {"year": 2023, "no": 14, "cluster": "C7", "title": "Lingkaran Pertemanan", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 14: Lingkaran Pertemanan"}, {"year": 2023, "no": 15, "cluster": "C3", "title": "Lift / Optimization", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Greedy / optimization", "display": "Soal 15: Lift / Optimization"}, {"year": 2023, "no": 16, "cluster": "C2", "title": "Counting / Invariant", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 16: Counting / Invariant"}, {"year": 2023, "no": 17, "cluster": "C2", "title": "Counting / Invariant", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 17: Counting / Invariant"}, {"year": 2023, "no": 18, "cluster": "C3", "title": "Biaya Minimum", "difficulty": 3.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Greedy / optimization", "display": "Soal 18: Biaya Minimum"}, {"year": 2023, "no": 19, "cluster": "C8", "title": "Tiling / Arrangement", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 19: Tiling / Arrangement"}, {"year": 2023, "no": 20, "cluster": "C8", "title": "Tiling / Arrangement", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 20: Tiling / Arrangement"}, {"year": 2023, "no": 21, "cluster": "C2", "title": "Logic / Ordering", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 21: Logic / Ordering"}, {"year": 2023, "no": 22, "cluster": "C2", "title": "Logic / Ordering", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 22: Logic / Ordering"}, {"year": 2023, "no": 23, "cluster": "C1", "title": "Path / Grid", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Spatial / path / grid", "display": "Soal 23: Path / Grid"}, {"year": 2023, "no": 24, "cluster": "C1", "title": "Path / Grid", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Spatial / path / grid", "display": "Soal 24: Path / Grid"}, {"year": 2023, "no": 25, "cluster": "C8", "title": "Cube View", "difficulty": 3.5, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 25: Cube View"}, {"year": 2023, "no": 26, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 26: Program Tracing"}, {"year": 2023, "no": 27, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 27: Program Tracing"}, {"year": 2023, "no": 28, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 28: Program Tracing"}, {"year": 2023, "no": 29, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 29: Program Tracing"}, {"year": 2023, "no": 30, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 30: Program Tracing"}, {"year": 2023, "no": 31, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 31: Program Tracing"}, {"year": 2023, "no": 32, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 32: Program Tracing"}, {"year": 2023, "no": 33, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 33: Program Tracing"}, {"year": 2023, "no": 34, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 34: Program Tracing"}, {"year": 2023, "no": 35, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.3, "yearLabel": "OSN-K Informatika 2023", "clusterLabel": "Program tracing / recursion", "display": "Soal 35: Program Tracing"}, {"year": 2022, "no": 1, "cluster": "C2", "title": "Logika / Voting", "difficulty": 2.7, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 1: Logika / Voting"}, {"year": 2022, "no": 2, "cluster": "C2", "title": "Logika / Voting", "difficulty": 2.7, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 2: Logika / Voting"}, {"year": 2022, "no": 3, "cluster": "C5", "title": "Digit Terakhir", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Number theory / modulo", "display": "Soal 3: Digit Terakhir"}, {"year": 2022, "no": 4, "cluster": "C5", "title": "Digit Terakhir", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Number theory / modulo", "display": "Soal 4: Digit Terakhir"}, {"year": 2022, "no": 5, "cluster": "C7", "title": "Jaringan Kota", "difficulty": 3.6, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 5: Jaringan Kota"}, {"year": 2022, "no": 6, "cluster": "C7", "title": "Jaringan Kota", "difficulty": 3.6, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 6: Jaringan Kota"}, {"year": 2022, "no": 7, "cluster": "C8", "title": "Bangun Ruang", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 7: Bangun Ruang"}, {"year": 2022, "no": 8, "cluster": "C2", "title": "Seleksi Peserta", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 8: Seleksi Peserta"}, {"year": 2022, "no": 9, "cluster": "C1", "title": "Perjalanan", "difficulty": 2.8, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Spatial / path / grid", "display": "Soal 9: Perjalanan"}, {"year": 2022, "no": 10, "cluster": "C2", "title": "Simulasi Bebek", "difficulty": 2.9, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 10: Simulasi Bebek"}, {"year": 2022, "no": 11, "cluster": "C2", "title": "Kelas / Relasi", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 11: Kelas / Relasi"}, {"year": 2022, "no": 12, "cluster": "C8", "title": "Papan / Geometri", "difficulty": 3.3, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 12: Papan / Geometri"}, {"year": 2022, "no": 13, "cluster": "C8", "title": "Potongan Benda", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 13: Potongan Benda"}, {"year": 2022, "no": 14, "cluster": "C2", "title": "Urutan Email", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 14: Urutan Email"}, {"year": 2022, "no": 15, "cluster": "C8", "title": "Meja Lingkar", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 15: Meja Lingkar"}, {"year": 2022, "no": 16, "cluster": "C2", "title": "Inklusi-Eksklusi", "difficulty": 3.1, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 16: Inklusi-Eksklusi"}, {"year": 2022, "no": 17, "cluster": "C5", "title": "Modulo", "difficulty": 3.4, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Number theory / modulo", "display": "Soal 17: Modulo"}, {"year": 2022, "no": 18, "cluster": "C7", "title": "Rute Wisata", "difficulty": 3.7, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 18: Rute Wisata"}, {"year": 2022, "no": 19, "cluster": "C8", "title": "Tiling / Segitiga", "difficulty": 3.5, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 19: Tiling / Segitiga"}, {"year": 2022, "no": 20, "cluster": "C8", "title": "Tiling / Segitiga", "difficulty": 3.5, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 20: Tiling / Segitiga"}, {"year": 2022, "no": 21, "cluster": "C2", "title": "Bahasa Bebek", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 21: Bahasa Bebek"}, {"year": 2022, "no": 22, "cluster": "C2", "title": "Bahasa Bebek", "difficulty": 3.0, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 22: Bahasa Bebek"}, {"year": 2022, "no": 23, "cluster": "C1", "title": "Grid / Jalur", "difficulty": 3.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Spatial / path / grid", "display": "Soal 23: Grid / Jalur"}, {"year": 2022, "no": 24, "cluster": "C8", "title": "Kubus / Proyeksi", "difficulty": 3.6, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 24: Kubus / Proyeksi"}, {"year": 2022, "no": 25, "cluster": "C8", "title": "Kubus / Proyeksi", "difficulty": 3.6, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 25: Kubus / Proyeksi"}, {"year": 2022, "no": 26, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 26: Program C++"}, {"year": 2022, "no": 27, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 27: Program C++"}, {"year": 2022, "no": 28, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 28: Program C++"}, {"year": 2022, "no": 29, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 29: Program C++"}, {"year": 2022, "no": 30, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 30: Program C++"}, {"year": 2022, "no": 31, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 31: Program C++"}, {"year": 2022, "no": 32, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 32: Program C++"}, {"year": 2022, "no": 33, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 33: Program C++"}, {"year": 2022, "no": 34, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 34: Program C++"}, {"year": 2022, "no": 35, "cluster": "C6", "title": "Program C++", "difficulty": 4.2, "yearLabel": "OSN-K Informatika 2022", "clusterLabel": "Program tracing / recursion", "display": "Soal 35: Program C++"}, {"year": 2021, "no": 1, "cluster": "C9", "title": "Peluang", "difficulty": 2.7, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Probability / expectation", "display": "Soal 1: Peluang"}, {"year": 2021, "no": 2, "cluster": "C1", "title": "Semut Bergerak", "difficulty": 3.0, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Spatial / path / grid", "display": "Soal 2: Semut Bergerak"}, {"year": 2021, "no": 3, "cluster": "C2", "title": "Logika / Medal", "difficulty": 2.6, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 3: Logika / Medal"}, {"year": 2021, "no": 4, "cluster": "C2", "title": "Pembagian", "difficulty": 2.8, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 4: Pembagian"}, {"year": 2021, "no": 5, "cluster": "C2", "title": "Pernyataan Benar-Salah", "difficulty": 3.0, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 5: Pernyataan Benar-Salah"}, {"year": 2021, "no": 6, "cluster": "C1", "title": "Grid Path / Gerak", "difficulty": 3.1, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Spatial / path / grid", "display": "Soal 6: Grid Path / Gerak"}, {"year": 2021, "no": 7, "cluster": "C1", "title": "Grid Path / Gerak", "difficulty": 3.1, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Spatial / path / grid", "display": "Soal 7: Grid Path / Gerak"}, {"year": 2021, "no": 8, "cluster": "C2", "title": "Logika", "difficulty": 2.7, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 8: Logika"}, {"year": 2021, "no": 9, "cluster": "C10", "title": "Tic Tac Toe", "difficulty": 3.6, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Game theory / adversarial", "display": "Soal 9: Tic Tac Toe"}, {"year": 2021, "no": 10, "cluster": "C2", "title": "Hompimpa", "difficulty": 2.8, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 10: Hompimpa"}, {"year": 2021, "no": 11, "cluster": "C8", "title": "Tiling", "difficulty": 3.3, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 11: Tiling"}, {"year": 2021, "no": 12, "cluster": "C8", "title": "Tiling", "difficulty": 3.3, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 12: Tiling"}, {"year": 2021, "no": 13, "cluster": "C1", "title": "Simulation / Seating", "difficulty": 3.0, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Spatial / path / grid", "display": "Soal 13: Simulation / Seating"}, {"year": 2021, "no": 14, "cluster": "C2", "title": "Recurrence / Counting", "difficulty": 3.4, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 14: Recurrence / Counting"}, {"year": 2021, "no": 15, "cluster": "C2", "title": "Recurrence / Counting", "difficulty": 3.4, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 15: Recurrence / Counting"}, {"year": 2021, "no": 16, "cluster": "C2", "title": "Counting / Combinatorics", "difficulty": 3.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 16: Counting / Combinatorics"}, {"year": 2021, "no": 17, "cluster": "C2", "title": "Counting / Combinatorics", "difficulty": 3.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 17: Counting / Combinatorics"}, {"year": 2021, "no": 18, "cluster": "C2", "title": "Counting / Combinatorics", "difficulty": 3.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Counting / combinatorics / invariant", "display": "Soal 18: Counting / Combinatorics"}, {"year": 2021, "no": 19, "cluster": "C8", "title": "Tiling / Cube", "difficulty": 3.4, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 19: Tiling / Cube"}, {"year": 2021, "no": 20, "cluster": "C8", "title": "Tiling / Cube", "difficulty": 3.4, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Geometry / tiling / arrangement", "display": "Soal 20: Tiling / Cube"}, {"year": 2021, "no": 21, "cluster": "C7", "title": "Graph / Network", "difficulty": 3.6, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 21: Graph / Network"}, {"year": 2021, "no": 22, "cluster": "C7", "title": "Graph / Network", "difficulty": 3.6, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Graph / connectivity / DAG", "display": "Soal 22: Graph / Network"}, {"year": 2021, "no": 23, "cluster": "C5", "title": "Number Theory", "difficulty": 3.0, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Number theory / modulo", "display": "Soal 23: Number Theory"}, {"year": 2021, "no": 24, "cluster": "C3", "title": "Greedy / Optimization", "difficulty": 3.4, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Greedy / optimization", "display": "Soal 24: Greedy / Optimization"}, {"year": 2021, "no": 25, "cluster": "C6", "title": "Recursion", "difficulty": 4.0, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 25: Recursion"}, {"year": 2021, "no": 26, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 26: Program Tracing"}, {"year": 2021, "no": 27, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 27: Program Tracing"}, {"year": 2021, "no": 28, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 28: Program Tracing"}, {"year": 2021, "no": 29, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 29: Program Tracing"}, {"year": 2021, "no": 30, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 30: Program Tracing"}, {"year": 2021, "no": 31, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 31: Program Tracing"}, {"year": 2021, "no": 32, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 32: Program Tracing"}, {"year": 2021, "no": 33, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 33: Program Tracing"}, {"year": 2021, "no": 34, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 34: Program Tracing"}, {"year": 2021, "no": 35, "cluster": "C6", "title": "Program Tracing", "difficulty": 4.2, "yearLabel": "KSN-K Informatika 2021", "clusterLabel": "Program tracing / recursion", "display": "Soal 35: Program Tracing"}];
-const clusterNames = {"C1": "Spatial / path / grid", "C2": "Counting / combinatorics / invariant", "C3": "Greedy / optimization", "C4": "String / permutation / transformation", "C5": "Number theory / modulo", "C6": "Program tracing / recursion", "C7": "Graph / connectivity / DAG", "C8": "Geometry / tiling / arrangement", "C9": "Probability / expectation", "C10": "Game theory / adversarial", "C11": "Search / binary search"};
-const yearNames = {"2025": "OSN-K Informatika 2025", "2024": "OSN-K Informatika 2024", "2023": "OSN-K Informatika 2023", "2022": "OSN-K Informatika 2022", "2021": "KSN-K Informatika 2021"};
-const pdfUrls = {
-  2025: 'https://osn.toki.id/data/OSNK2025.pdf',
-  2024: 'https://osn.toki.id/data/OSNK2024.pdf',
-  2023: 'https://osn.toki.id/data/OSNK2023.pdf',
-  2022: 'https://osn.toki.id/data/OSNK2022.pdf',
-  2021: 'https://osn.toki.id/data/KSNK2021.pdf'
-};
-function pdfUrlForYear(year) {
-  return pdfUrls[year] || '#';
-}
+  <script>
+    const QUESTIONS = [{"year": 2021, "q": 1, "title": "Peluang setidaknya 2 kendaraan", "cluster_code": "PROB", "cluster": "Probabilitas & Ekspektasi", "cluster_desc": "Probability, expectation-like reasoning, and random-process analysis.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Independent events and probability.", "block_title": "Peluang setidaknya 2 kendaraan", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "teori himpunan, kombinatorika, probabilitas diskret"}, {"year": 2021, "q": 2, "title": "Tabrakan semut", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Discrete collision invariant on a moving-particles process.", "block_title": "Tabrakan semut", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2021, "q": 3, "title": "Ranking medali", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Logical constraints on permutations.", "block_title": "Ranking medali", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2021, "q": 4, "title": "Permen kembar", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Optimization under arithmetic constraints.", "block_title": "Permen kembar", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2021, "q": 5, "title": "Pernyataan delapan orang", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Logic consistency / self-reference.", "block_title": "Pernyataan delapan orang", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2021, "q": 6, "title": "Gerak semut 2D (aturan 1)", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Finite-state grid movement.", "block_title": "Gerak semut 2D (aturan 1)", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2021, "q": 7, "title": "Gerak semut 2D (aturan 2)", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Finite-state grid movement.", "block_title": "Gerak semut 2D (aturan 2)", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2021, "q": 8, "title": "Pernyataan logika", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Truth evaluation.", "block_title": "Pernyataan logika", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2021, "q": 9, "title": "Tic Tac Toe", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Game strategy and winning lines.", "block_title": "Tic Tac Toe", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2021, "q": 10, "title": "Hompimpa", "cluster_code": "PROB", "cluster": "Probabilitas & Ekspektasi", "cluster_desc": "Probability, expectation-like reasoning, and random-process analysis.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Probability and stopping condition.", "block_title": "Hompimpa", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "teori himpunan, kombinatorika, probabilitas diskret"}, {"year": 2021, "q": 11, "title": "Ubin 3 jenis", "cluster_code": "DP", "cluster": "DP & Tiling", "cluster_desc": "State transition, tiling, dynamic programming, and constrained placement.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Tiling feasibility / state DP.", "block_title": "Ubin 3 jenis", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "dynamic programming, array, optimisasi"}, {"year": 2021, "q": 12, "title": "Ubin 3 jenis (variant)", "cluster_code": "DP", "cluster": "DP & Tiling", "cluster_desc": "State transition, tiling, dynamic programming, and constrained placement.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Tiling feasibility / state DP.", "block_title": "Ubin 3 jenis (variant)", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "dynamic programming, array, optimisasi"}, {"year": 2021, "q": 13, "title": "Serangan bebek", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Turn-based probabilistic game.", "block_title": "Serangan bebek", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2021, "q": 14, "title": "Denah ruangan (1)", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Grid path / random walk.", "block_title": "Denah ruangan (1)", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2021, "q": 15, "title": "Denah ruangan (2)", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Grid path / random walk.", "block_title": "Denah ruangan (2)", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2021, "q": 16, "title": "Antrean toko", "cluster_code": "GREEDY", "cluster": "Greedy & Optimisasi", "cluster_desc": "Local-choice optimization, scheduling, selection, and minimization/maximization arguments.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Ordering / movement minimization.", "block_title": "Antrean toko", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "optimisasi, pemecahan masalah, greedy"}, {"year": 2021, "q": 17, "title": "Permutasi KSNK2021", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Permutations with adjacency constraints.", "block_title": "Permutasi KSNK2021", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2021, "q": 18, "title": "Tabrakan semut (varian)", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Collision invariant / inversion counting.", "block_title": "Tabrakan semut (varian)", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2021, "q": 19, "title": "Memasang ubin 1×3", "cluster_code": "DP", "cluster": "DP & Tiling", "cluster_desc": "State transition, tiling, dynamic programming, and constrained placement.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Tiling enumeration.", "block_title": "Memasang ubin 1×3", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "dynamic programming, array, optimisasi"}, {"year": 2021, "q": 20, "title": "Batu pada papan 3×3", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Exact-cover counting.", "block_title": "Batu pada papan 3×3", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2021, "q": 21, "title": "Mewarnai 2×4", "cluster_code": "DP", "cluster": "DP & Tiling", "cluster_desc": "State transition, tiling, dynamic programming, and constrained placement.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Grid coloring.", "block_title": "Mewarnai 2×4", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "dynamic programming, array, optimisasi"}, {"year": 2021, "q": 22, "title": "Mewarnai 2×4 torus", "cluster_code": "DP", "cluster": "DP & Tiling", "cluster_desc": "State transition, tiling, dynamic programming, and constrained placement.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Grid coloring with wrap-around.", "block_title": "Mewarnai 2×4 torus", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "dynamic programming, array, optimisasi"}, {"year": 2021, "q": 23, "title": "42! modulo 2021", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Factorial modulo.", "block_title": "42! modulo 2021", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2021, "q": 24, "title": "Urutan apel", "cluster_code": "ORDER", "cluster": "Urutan, Sorting & Relasi Parsial", "cluster_desc": "Urutan, sorting, topological reasoning, dan relasi parsial.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Comparison-based sorting.", "block_title": "Urutan apel", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "graf, keterurutan, kombinatorika"}, {"year": 2021, "q": 25, "title": "Perumahan dan kabel", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Graph connectivity.", "block_title": "Perumahan dan kabel", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2021, "q": 26, "title": "Program 1", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Straight-line tracing.", "block_title": "Program 1", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2021, "q": 27, "title": "Program 2", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Straight-line tracing.", "block_title": "Program 2", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2021, "q": 28, "title": "Program 3", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Loop tracing.", "block_title": "Program 3", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2021, "q": 29, "title": "Program 4", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Loop tracing.", "block_title": "Program 4", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2021, "q": 30, "title": "Program 5", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Array tracing.", "block_title": "Program 5", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2021, "q": 31, "title": "Program 6", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Stateful tracing.", "block_title": "Program 6", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2021, "q": 32, "title": "Program 7", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive tracing.", "block_title": "Program 7", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2021, "q": 33, "title": "Program 8", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive tracing.", "block_title": "Program 8", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2021, "q": 34, "title": "Program 9", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive tracing.", "block_title": "Program 9", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2021, "q": 35, "title": "Program 10", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 5, "difficulty_label": "Sangat lanjut", "note": "Deep recursive trace.", "block_title": "Program 10", "pdf": "https://osn.toki.id/data/KSNK2021.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 1, "title": "Operasi logika", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Boolean formula evaluation.", "block_title": "Operasi logika", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2022, "q": 2, "title": "Voting ketua asosiasi", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Set intersections and weighted voting.", "block_title": "Voting ketua asosiasi", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2022, "q": 3, "title": "Persamaan bilangan bulat", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Algebraic constraint and digit analysis.", "block_title": "Persamaan bilangan bulat", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2022, "q": 4, "title": "Digit terakhir perkalian", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 1, "difficulty_label": "Sangat dasar", "note": "Last-digit modular arithmetic.", "block_title": "Digit terakhir perkalian", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2022, "q": 5, "title": "Jaringan enam kota", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Connectivity and infrastructure.", "block_title": "Jaringan enam kota", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2022, "q": 6, "title": "Graf berarah delapan kota", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Shortest path / directed weighted graph.", "block_title": "Graf berarah delapan kota", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2022, "q": 7, "title": "Program menggambar bangun ruang", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Instruction-driven drawing simulation.", "block_title": "Program menggambar bangun ruang", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2022, "q": 8, "title": "Seleksi 10 dari 15 bebek", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Combinatorial selection with constraints.", "block_title": "Seleksi 10 dari 15 bebek", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2022, "q": 9, "title": "Oleh-oleh Yogyakarta", "cluster_code": "GREEDY", "cluster": "Greedy & Optimisasi", "cluster_desc": "Local-choice optimization, scheduling, selection, and minimization/maximization arguments.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Knapsack-style optimization.", "block_title": "Oleh-oleh Yogyakarta", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "optimisasi, pemecahan masalah, greedy"}, {"year": 2022, "q": 10, "title": "Barisan angka 1,4,7,...", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Arithmetic progression and indexing.", "block_title": "Barisan angka 1,4,7,...", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2022, "q": 11, "title": "Jumlah bilangan ganjil", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Arithmetic series identity.", "block_title": "Jumlah bilangan ganjil", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2022, "q": 12, "title": "Permainan papan", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Game strategy on linear board.", "block_title": "Permainan papan", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2022, "q": 13, "title": "Maksimal potongan garis", "cluster_code": "GEO", "cluster": "Geometri & Ruang Diskret", "cluster_desc": "Geometry, spatial arrangements, line/region counting, and geometric feasibility.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Regions from lines.", "block_title": "Maksimal potongan garis", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "geometri, bidang datar, koordinat"}, {"year": 2022, "q": 14, "title": "Urutan membaca email", "cluster_code": "ORDER", "cluster": "Urutan, Sorting & Relasi Parsial", "cluster_desc": "Urutan, sorting, topological reasoning, dan relasi parsial.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Topological ordering / precedence constraints.", "block_title": "Urutan membaca email", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "graf, keterurutan, kombinatorika"}, {"year": 2022, "q": 15, "title": "Meja lingkar", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Circular removal / greedy order.", "block_title": "Meja lingkar", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2022, "q": 16, "title": "Preferensi makanan warga", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Set counting / inclusion-exclusion.", "block_title": "Preferensi makanan warga", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2022, "q": 17, "title": "Mod 707", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Modular arithmetic.", "block_title": "Mod 707", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2022, "q": 18, "title": "Wisata Pulau Jawa", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Shortest path / travel network.", "block_title": "Wisata Pulau Jawa", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2022, "q": 19, "title": "Kandang 1×10", "cluster_code": "DP", "cluster": "DP & Tiling", "cluster_desc": "State transition, tiling, dynamic programming, and constrained placement.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Tiling / packing DP.", "block_title": "Kandang 1×10", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "dynamic programming, array, optimisasi"}, {"year": 2022, "q": 20, "title": "Segitiga dari patok", "cluster_code": "GEO", "cluster": "Geometri & Ruang Diskret", "cluster_desc": "Geometry, spatial arrangements, line/region counting, and geometric feasibility.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Geometric feasibility.", "block_title": "Segitiga dari patok", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "geometri, bidang datar, koordinat"}, {"year": 2022, "q": 21, "title": "Pewarnaan 2×4", "cluster_code": "DP", "cluster": "DP & Tiling", "cluster_desc": "State transition, tiling, dynamic programming, and constrained placement.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Grid coloring / state DP.", "block_title": "Pewarnaan 2×4", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "dynamic programming, array, optimisasi"}, {"year": 2022, "q": 22, "title": "Pewarnaan torus 2×4", "cluster_code": "DP", "cluster": "DP & Tiling", "cluster_desc": "State transition, tiling, dynamic programming, and constrained placement.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Grid coloring with wrap-around.", "block_title": "Pewarnaan torus 2×4", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "dynamic programming, array, optimisasi"}, {"year": 2022, "q": 23, "title": "42! mod 2021", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Factorial modulo.", "block_title": "42! mod 2021", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2022, "q": 24, "title": "Urutan apel", "cluster_code": "ORDER", "cluster": "Urutan, Sorting & Relasi Parsial", "cluster_desc": "Urutan, sorting, topological reasoning, dan relasi parsial.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Comparison-based sorting lower bound.", "block_title": "Urutan apel", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "graf, keterurutan, kombinatorika"}, {"year": 2022, "q": 25, "title": "Perumahan dan kabel telepon", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Graph connectivity / spanning structure.", "block_title": "Perumahan dan kabel telepon", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2022, "q": 26, "title": "Program 1", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Straight-line tracing.", "block_title": "Program 1", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 27, "title": "Program 2", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Branch tracing.", "block_title": "Program 2", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 28, "title": "Program 3", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Loop tracing.", "block_title": "Program 3", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 29, "title": "Program 4", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Loop and state tracing.", "block_title": "Program 4", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 30, "title": "Program 5", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Array update tracing.", "block_title": "Program 5", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 31, "title": "Program 6", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Stateful loop tracing.", "block_title": "Program 6", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 32, "title": "Fungsi 7", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive function tracing.", "block_title": "Fungsi 7", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 33, "title": "Fungsi 8", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive function tracing.", "block_title": "Fungsi 8", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 34, "title": "Fungsi merah/putih", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive counting.", "block_title": "Fungsi merah/putih", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2022, "q": 35, "title": "Fungsi rekursif", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 5, "difficulty_label": "Sangat lanjut", "note": "Deep recursion / parameter tracing.", "block_title": "Fungsi rekursif", "pdf": "https://osn.toki.id/data/OSNK2022.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 1, "title": "Logika minimum dua TRUE", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Boolean formula with minimum two true variables.", "block_title": "Logika minimum dua TRUE", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2023, "q": 2, "title": "Pemetaan pemilik bebek karet", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Set constraints / assignment.", "block_title": "Pemetaan pemilik bebek karet", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2023, "q": 3, "title": "Seleksi bebek unggul", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Score threshold and logical elimination.", "block_title": "Seleksi bebek unggul", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2023, "q": 4, "title": "Maraton bebek tak hingga", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Geometric-series / total distance.", "block_title": "Maraton bebek tak hingga", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2023, "q": 5, "title": "Jadwal mandi bebek", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Finite recurrence / schedule counting.", "block_title": "Jadwal mandi bebek", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2023, "q": 6, "title": "Kotak segar dan busuk", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Pigeonhole / counting bounds.", "block_title": "Kotak segar dan busuk", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2023, "q": 7, "title": "Undian string AAA–ZZZ", "cluster_code": "STRING", "cluster": "String & Encoding", "cluster_desc": "Lexicographic order, language-like encoding, subsequences, and pattern matching.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Lexicographic enumeration.", "block_title": "Undian string AAA–ZZZ", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "masukan/keluaran, array, subprogram, string"}, {"year": 2023, "q": 8, "title": "Undian string AAA–ZZZ (variant)", "cluster_code": "STRING", "cluster": "String & Encoding", "cluster_desc": "Lexicographic order, language-like encoding, subsequences, and pattern matching.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Lexicographic enumeration.", "block_title": "Undian string AAA–ZZZ (variant)", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "masukan/keluaran, array, subprogram, string"}, {"year": 2023, "q": 9, "title": "Hari ke-11 dengan satu kelas", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Divisibility / counting multiples.", "block_title": "Hari ke-11 dengan satu kelas", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2023, "q": 10, "title": "Iterasi dua bilangan bulat", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Euclid-like invariant process.", "block_title": "Iterasi dua bilangan bulat", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2023, "q": 11, "title": "Distribusi bola tiga warna", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Multiset distribution and inclusion-exclusion.", "block_title": "Distribusi bola tiga warna", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2023, "q": 12, "title": "Perjalanan A-B-C", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Route counting on a multigraph.", "block_title": "Perjalanan A-B-C", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2023, "q": 13, "title": "Pembagian bidang oleh garis", "cluster_code": "GEO", "cluster": "Geometri & Ruang Diskret", "cluster_desc": "Geometry, spatial arrangements, line/region counting, and geometric feasibility.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Regions formed by line arrangement.", "block_title": "Pembagian bidang oleh garis", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "geometri, bidang datar, koordinat"}, {"year": 2023, "q": 14, "title": "Kandang dan jalan setapak", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Connectivity on a small graph.", "block_title": "Kandang dan jalan setapak", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2023, "q": 15, "title": "Lift lantai 7 ke 1", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Simulation with movement rule.", "block_title": "Lift lantai 7 ke 1", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2023, "q": 16, "title": "Mewarnai bilangan 1..2023", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Graph coloring on arithmetic constraints.", "block_title": "Mewarnai bilangan 1..2023", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2023, "q": 17, "title": "Segitiga lancip", "cluster_code": "GEO", "cluster": "Geometri & Ruang Diskret", "cluster_desc": "Geometry, spatial arrangements, line/region counting, and geometric feasibility.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Triangle inequality and acute condition.", "block_title": "Segitiga lancip", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "geometri, bidang datar, koordinat"}, {"year": 2023, "q": 18, "title": "Permainan tebak dua bilangan", "cluster_code": "SEARCH", "cluster": "Pencarian & Strategi Keputusan", "cluster_desc": "Eksplorasi ruang solusi, pencarian, dan strategi keputusan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Information-gain / guessing game.", "block_title": "Permainan tebak dua bilangan", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "berpikir komputasional, optimisasi, logika"}, {"year": 2023, "q": 19, "title": "Mainan untuk 5 bebek", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Allocation and combinatorial counting.", "block_title": "Mainan untuk 5 bebek", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2023, "q": 20, "title": "String AAA–ZZZ (counting)", "cluster_code": "STRING", "cluster": "String & Encoding", "cluster_desc": "Lexicographic order, language-like encoding, subsequences, and pattern matching.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Lexicographic enumeration.", "block_title": "String AAA–ZZZ (counting)", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "masukan/keluaran, array, subprogram, string"}, {"year": 2023, "q": 21, "title": "Permainan 60 petak melingkar", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Cyclic discrete process; invariant/periodicity reasoning.", "block_title": "Permainan 60 petak melingkar", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2023, "q": 22, "title": "Jaringan antar kecamatan", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Connectivity and spanning-network reasoning.", "block_title": "Jaringan antar kecamatan", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2023, "q": 23, "title": "Pangkat terbesar dari 42 dalam 2023!", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Factorial divisibility and trailing zeros.", "block_title": "Pangkat terbesar dari 42 dalam 2023!", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2023, "q": 24, "title": "Bahasa bebek", "cluster_code": "STRING", "cluster": "String & Encoding", "cluster_desc": "Lexicographic order, language-like encoding, subsequences, and pattern matching.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Code/translation mapping.", "block_title": "Bahasa bebek", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "masukan/keluaran, array, subprogram, string"}, {"year": 2023, "q": 25, "title": "Benda pusaka dan kekuatan", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Partial order / influence network.", "block_title": "Benda pusaka dan kekuatan", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2023, "q": 26, "title": "Program 1", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Straight-line code tracing.", "block_title": "Program 1", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 27, "title": "Program 2", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Nested-condition tracing.", "block_title": "Program 2", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 28, "title": "Program 3", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Loop tracing / pattern generation.", "block_title": "Program 3", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 29, "title": "Program 4", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "While-loop invariant tracing.", "block_title": "Program 4", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 30, "title": "Program 5", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Array state tracing.", "block_title": "Program 5", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 31, "title": "Program 6", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Global state / accumulation trace.", "block_title": "Program 6", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 32, "title": "Fungsi 7", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive function tracing.", "block_title": "Fungsi 7", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 33, "title": "Fungsi 8", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive function tracing.", "block_title": "Fungsi 8", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 34, "title": "Fungsi merah/putih", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive state counting.", "block_title": "Fungsi merah/putih", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2023, "q": 35, "title": "Fungsi hijau", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 5, "difficulty_label": "Sangat lanjut", "note": "Complex recursion / control flow.", "block_title": "Fungsi hijau", "pdf": "https://osn.toki.id/data/OSNK2023.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 1, "title": "Mencari OSN", "cluster_code": "STRING", "cluster": "String & Encoding", "cluster_desc": "Lexicographic order, language-like encoding, subsequences, and pattern matching.", "difficulty": 2, "difficulty_label": "Dasar", "note": "3-letter pattern search in a grid.", "block_title": "Mencari OSN", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "masukan/keluaran, array, subprogram, string"}, {"year": 2024, "q": 2, "title": "Mengurutkan Rutinitas", "cluster_code": "ORDER", "cluster": "Urutan, Sorting & Relasi Parsial", "cluster_desc": "Urutan, sorting, topological reasoning, dan relasi parsial.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Topological ordering / sorting-style reasoning.", "block_title": "Mengurutkan Rutinitas", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "graf, keterurutan, kombinatorika"}, {"year": 2024, "q": 3, "title": "Berebut Pizza", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Combinatorial allocation / partitioning.", "block_title": "Berebut Pizza", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2024, "q": 4, "title": "Bebek dan Lampu", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Set constraints over favourite lights.", "block_title": "Bebek dan Lampu", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2024, "q": 5, "title": "Parade Bebek", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Graph traversal / route reasoning.", "block_title": "Parade Bebek", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2024, "q": 6, "title": "Menggambar Denah", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Graph representation and adjacency reasoning.", "block_title": "Menggambar Denah", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2024, "q": 7, "title": "Mesin Pengurutan Kelereng", "cluster_code": "ORDER", "cluster": "Urutan, Sorting & Relasi Parsial", "cluster_desc": "Urutan, sorting, topological reasoning, dan relasi parsial.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Topological ordering / sorting-style reasoning.", "block_title": "Mesin Pengurutan Kelereng", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "graf, keterurutan, kombinatorika"}, {"year": 2024, "q": 8, "title": "Komite Audit", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Social graph / committee selection.", "block_title": "Komite Audit", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2024, "q": 9, "title": "Mengambil Daun", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Turn-based game state analysis.", "block_title": "Mengambil Daun", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2024, "q": 10, "title": "Perjalanan Bebek", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Grid reachability / movement on board.", "block_title": "Perjalanan Bebek", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2024, "q": 11, "title": "Pertandingan Sepak Bola — subtask 1", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Tournament scoring and ranking.", "block_title": "Pertandingan Sepak Bola", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2024, "q": 12, "title": "Pertandingan Sepak Bola — subtask 2", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Tournament scoring and ranking.", "block_title": "Pertandingan Sepak Bola", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2024, "q": 13, "title": "Pertandingan Sepak Bola — subtask 3", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Tournament scoring and ranking.", "block_title": "Pertandingan Sepak Bola", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2024, "q": 14, "title": "Pertemanan Ayam — subtask 1", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Transitive closure / equivalence relation.", "block_title": "Pertemanan Ayam", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2024, "q": 15, "title": "Pertemanan Ayam — subtask 2", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Transitive closure / equivalence relation.", "block_title": "Pertemanan Ayam", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2024, "q": 16, "title": "Pertemanan Ayam — subtask 3", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Transitive closure / equivalence relation.", "block_title": "Pertemanan Ayam", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2024, "q": 17, "title": "Mencicipi Biskuit — subtask 1", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Counting biskuit distributions and constraints.", "block_title": "Mencicipi Biskuit", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2024, "q": 18, "title": "Mencicipi Biskuit — subtask 2", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Counting biskuit distributions and constraints.", "block_title": "Mencicipi Biskuit", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2024, "q": 19, "title": "Mencicipi Biskuit — subtask 3", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Counting biskuit distributions and constraints.", "block_title": "Mencicipi Biskuit", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2024, "q": 20, "title": "Menggelindingkan Meja — subtask 1", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Discrete geometry and repeated motion.", "block_title": "Menggelindingkan Meja", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2024, "q": 21, "title": "Menggelindingkan Meja — subtask 2", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Discrete geometry and repeated motion.", "block_title": "Menggelindingkan Meja", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2024, "q": 22, "title": "Menggelindingkan Meja — subtask 3", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Discrete geometry and repeated motion.", "block_title": "Menggelindingkan Meja", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2024, "q": 23, "title": "Permainan Kursi di Kelas — subtask 1", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Circular simulation / elimination style.", "block_title": "Permainan Kursi di Kelas", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2024, "q": 24, "title": "Permainan Kursi di Kelas — subtask 2", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Circular simulation / elimination style.", "block_title": "Permainan Kursi di Kelas", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2024, "q": 25, "title": "Permainan Kursi di Kelas — subtask 3", "cluster_code": "GAME", "cluster": "Teori Permainan & Invarian", "cluster_desc": "Teori permainan, argumen invariant, pola berulang, dan analisis proses diskret.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Circular simulation / elimination style.", "block_title": "Permainan Kursi di Kelas", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "optimisasi, berpikir komputasional, logika"}, {"year": 2024, "q": 26, "title": "Cek dan Ricek — subtask 1", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Direct code tracing.", "block_title": "Cek dan Ricek", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 27, "title": "Cek dan Ricek — subtask 2", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Direct code tracing.", "block_title": "Cek dan Ricek", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 28, "title": "Cek dan Ricek — subtask 3", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Direct code tracing.", "block_title": "Cek dan Ricek", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 29, "title": "Start dan Finish? — subtask 1", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Loop tracing and state updates.", "block_title": "Start dan Finish?", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 30, "title": "Start dan Finish? — subtask 2", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Loop tracing and state updates.", "block_title": "Start dan Finish?", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 31, "title": "Start dan Finish? — subtask 3", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Loop tracing and state updates.", "block_title": "Start dan Finish?", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 32, "title": "Ke Kiri dan Kanan — subtask 1", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive search and boundary logic.", "block_title": "Ke Kiri dan Kanan", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 33, "title": "Ke Kiri dan Kanan — subtask 2", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive search and boundary logic.", "block_title": "Ke Kiri dan Kanan", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 34, "title": "Ke Kiri dan Kanan — subtask 3", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive search and boundary logic.", "block_title": "Ke Kiri dan Kanan", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 35, "title": "Panas Dingin — subtask 1", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive digit processing.", "block_title": "Panas Dingin", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 36, "title": "Panas Dingin — subtask 2", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recursive digit processing.", "block_title": "Panas Dingin", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 37, "title": "Panas Dingin — subtask 3", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 5, "difficulty_label": "Sangat lanjut", "note": "Recursive digit processing.", "block_title": "Panas Dingin", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 38, "title": "Fungsi Pendek — subtask 1", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Recurrence / Josephus-style function.", "block_title": "Fungsi Pendek", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 39, "title": "Fungsi Pendek — subtask 2", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 5, "difficulty_label": "Sangat lanjut", "note": "Recurrence / Josephus-style function.", "block_title": "Fungsi Pendek", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2024, "q": 40, "title": "Fungsi Pendek — subtask 3", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 5, "difficulty_label": "Sangat lanjut", "note": "Recurrence / Josephus-style function.", "block_title": "Fungsi Pendek", "pdf": "https://osn.toki.id/data/OSNK2024.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2025, "q": 1, "title": "Labirin Berarah", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Maze/path feasibility on a finite grid.", "block_title": "Labirin Berarah", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2025, "q": 2, "title": "Keluar-Masuk Kandang", "cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "cluster_desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Flow-invariant and parity-style reasoning.", "block_title": "Keluar-Masuk Kandang", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "aljabar Boolean, teori himpunan, induksi/deduksi logika"}, {"year": 2025, "q": 3, "title": "Komando Bebek", "cluster_code": "GRID", "cluster": "Simulasi Diskret & CT", "cluster_desc": "Simulasi pada grid/proses diskret, otomata berhingga, dan computational thinking.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Deterministic movement simulation.", "block_title": "Komando Bebek", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "berpikir komputasional, simulasi, percabangan, perulangan"}, {"year": 2025, "q": 4, "title": "Dari Aceh Sampai Bakauheni", "cluster_code": "GREEDY", "cluster": "Greedy & Optimisasi", "cluster_desc": "Local-choice optimization, scheduling, selection, and minimization/maximization arguments.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Minimum refueling stops.", "block_title": "Dari Aceh Sampai Bakauheni", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "optimisasi, pemecahan masalah, greedy"}, {"year": 2025, "q": 5, "title": "Agen BB007", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Counting valid aliases under regular constraints.", "block_title": "Agen BB007", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2025, "q": 6, "title": "Pencarian Koin", "cluster_code": "SEARCH", "cluster": "Pencarian & Strategi Keputusan", "cluster_desc": "Eksplorasi ruang solusi, pencarian, dan strategi keputusan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Binary-search / information-gain strategy.", "block_title": "Pencarian Koin", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "berpikir komputasional, optimisasi, logika"}, {"year": 2025, "q": 7, "title": "Penerangan Ruangan", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Minimum dominating lamps on a room graph.", "block_title": "Penerangan Ruangan", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2025, "q": 8, "title": "Rangkaian Mantra", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Permutation/state-machine transformation.", "block_title": "Rangkaian Mantra", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2025, "q": 9, "title": "Berlatih OSN", "cluster_code": "ORDER", "cluster": "Urutan, Sorting & Relasi Parsial", "cluster_desc": "Urutan, sorting, topological reasoning, dan relasi parsial.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Prerequisite graph and scheduling.", "block_title": "Berlatih OSN", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "graf, keterurutan, kombinatorika"}, {"year": 2025, "q": 10, "title": "Dua dari Tujuh Telur Bebek", "cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "cluster_desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Subset identification and oracle design.", "block_title": "Dua dari Tujuh Telur Bebek", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "kombinatorika, teori himpunan, prinsip pencacahan"}, {"year": 2025, "q": 11, "title": "Mesin BCS — trace / output", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Finite-state trace and inverse reconstruction.", "block_title": "Mesin BCS", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2025, "q": 12, "title": "Mesin BCS — inverse reconstruction", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Finite-state trace and inverse reconstruction.", "block_title": "Mesin BCS", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2025, "q": 13, "title": "Mesin BCS — feasibility / extremal case", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Finite-state trace and inverse reconstruction.", "block_title": "Mesin BCS", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2025, "q": 14, "title": "Perjalanan ke Timur — trace / output", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Path counting with keys/constraints.", "block_title": "Perjalanan ke Timur", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2025, "q": 15, "title": "Perjalanan ke Timur — inverse reconstruction", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Path counting with keys/constraints.", "block_title": "Perjalanan ke Timur", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2025, "q": 16, "title": "Perjalanan ke Timur — feasibility / extremal case", "cluster_code": "GRAPH", "cluster": "Graf & Konektivitas", "cluster_desc": "Graf, konektivitas, lintasan, sirkuit, dan pemodelan jaringan.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Path counting with keys/constraints.", "block_title": "Perjalanan ke Timur", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "graf, pohon, keterjangkauan, konektivitas"}, {"year": 2025, "q": 17, "title": "Menyimpan Kotak Penyimpanan — trace / output", "cluster_code": "GEO", "cluster": "Geometri & Ruang Diskret", "cluster_desc": "Geometry, spatial arrangements, line/region counting, and geometric feasibility.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Nesting / visibility / dominance ordering.", "block_title": "Menyimpan Kotak Penyimpanan", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "geometri, bidang datar, koordinat"}, {"year": 2025, "q": 18, "title": "Menyimpan Kotak Penyimpanan — inverse reconstruction", "cluster_code": "GEO", "cluster": "Geometri & Ruang Diskret", "cluster_desc": "Geometry, spatial arrangements, line/region counting, and geometric feasibility.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Nesting / visibility / dominance ordering.", "block_title": "Menyimpan Kotak Penyimpanan", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "geometri, bidang datar, koordinat"}, {"year": 2025, "q": 19, "title": "Menyimpan Kotak Penyimpanan — feasibility / extremal case", "cluster_code": "GEO", "cluster": "Geometri & Ruang Diskret", "cluster_desc": "Geometry, spatial arrangements, line/region counting, and geometric feasibility.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Nesting / visibility / dominance ordering.", "block_title": "Menyimpan Kotak Penyimpanan", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "geometri, bidang datar, koordinat"}, {"year": 2025, "q": 20, "title": "Kartu Huruf Ajaib — trace / output", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Iterated transformation and cycle analysis.", "block_title": "Kartu Huruf Ajaib", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 21, "title": "Kartu Huruf Ajaib — inverse reconstruction", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Iterated transformation and cycle analysis.", "block_title": "Kartu Huruf Ajaib", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 22, "title": "Kartu Huruf Ajaib — feasibility / extremal case", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Iterated transformation and cycle analysis.", "block_title": "Kartu Huruf Ajaib", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 23, "title": "Bebek Gayung — trace / output", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Linear Diophantine / reachability by scoop sizes.", "block_title": "Bebek Gayung", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 24, "title": "Bebek Gayung — inverse reconstruction", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Linear Diophantine / reachability by scoop sizes.", "block_title": "Bebek Gayung", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 25, "title": "Bebek Gayung — feasibility / extremal case", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Linear Diophantine / reachability by scoop sizes.", "block_title": "Bebek Gayung", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 26, "title": "Modulo Tiga — trace / output", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Recursive modulo arithmetic.", "block_title": "Modulo Tiga", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 27, "title": "Modulo Tiga — inverse reconstruction", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Recursive modulo arithmetic.", "block_title": "Modulo Tiga", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 28, "title": "Modulo Tiga — feasibility / extremal case", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Recursive modulo arithmetic.", "block_title": "Modulo Tiga", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 29, "title": "FUN dan GSI — trace / output", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Prefix-sum style code analysis and tracing.", "block_title": "FUN dan GSI", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2025, "q": 30, "title": "FUN dan GSI — inverse reconstruction", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Prefix-sum style code analysis and tracing.", "block_title": "FUN dan GSI", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2025, "q": 31, "title": "FUN dan GSI — feasibility / extremal case", "cluster_code": "TRACE", "cluster": "Analisis Program, Tracing & Rekursi", "cluster_desc": "Analisis program, tracing eksekusi, kontrol alur, pemahaman array/fungsi, dan rekursi.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Prefix-sum style code analysis and tracing.", "block_title": "FUN dan GSI", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "array, subprogram, rekursi, membaca algoritma"}, {"year": 2025, "q": 32, "title": "Dua String — trace / output", "cluster_code": "STRING", "cluster": "String & Encoding", "cluster_desc": "Lexicographic order, language-like encoding, subsequences, and pattern matching.", "difficulty": 2, "difficulty_label": "Dasar", "note": "Reversed-pattern matching and counting.", "block_title": "Dua String", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "masukan/keluaran, array, subprogram, string"}, {"year": 2025, "q": 33, "title": "Dua String — inverse reconstruction", "cluster_code": "STRING", "cluster": "String & Encoding", "cluster_desc": "Lexicographic order, language-like encoding, subsequences, and pattern matching.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Reversed-pattern matching and counting.", "block_title": "Dua String", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "masukan/keluaran, array, subprogram, string"}, {"year": 2025, "q": 34, "title": "Dua String — feasibility / extremal case", "cluster_code": "STRING", "cluster": "String & Encoding", "cluster_desc": "Lexicographic order, language-like encoding, subsequences, and pattern matching.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Reversed-pattern matching and counting.", "block_title": "Dua String", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "masukan/keluaran, array, subprogram, string"}, {"year": 2025, "q": 35, "title": "Rahasia Petak 5x5 — trace / output", "cluster_code": "ORDER", "cluster": "Urutan, Sorting & Relasi Parsial", "cluster_desc": "Urutan, sorting, topological reasoning, dan relasi parsial.", "difficulty": 3, "difficulty_label": "Menengah", "note": "Order-statistics / median-like aggregation on a 5x5 grid.", "block_title": "Rahasia Petak 5x5", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "graf, keterurutan, kombinatorika"}, {"year": 2025, "q": 36, "title": "Rahasia Petak 5x5 — inverse reconstruction", "cluster_code": "ORDER", "cluster": "Urutan, Sorting & Relasi Parsial", "cluster_desc": "Urutan, sorting, topological reasoning, dan relasi parsial.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Order-statistics / median-like aggregation on a 5x5 grid.", "block_title": "Rahasia Petak 5x5", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "graf, keterurutan, kombinatorika"}, {"year": 2025, "q": 37, "title": "Rahasia Petak 5x5 — feasibility / extremal case", "cluster_code": "ORDER", "cluster": "Urutan, Sorting & Relasi Parsial", "cluster_desc": "Urutan, sorting, topological reasoning, dan relasi parsial.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "Order-statistics / median-like aggregation on a 5x5 grid.", "block_title": "Rahasia Petak 5x5", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "graf, keterurutan, kombinatorika"}, {"year": 2025, "q": 38, "title": "Merah-Putih Nusantara — trace / output", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 3, "difficulty_label": "Menengah", "note": "GCD and divisibility counting.", "block_title": "Merah-Putih Nusantara", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 39, "title": "Merah-Putih Nusantara — inverse reconstruction", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "GCD and divisibility counting.", "block_title": "Merah-Putih Nusantara", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}, {"year": 2025, "q": 40, "title": "Merah-Putih Nusantara — feasibility / extremal case", "cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "cluster_desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "difficulty": 4, "difficulty_label": "Lanjut", "note": "GCD and divisibility counting.", "block_title": "Merah-Putih Nusantara", "pdf": "https://osn.toki.id/data/OSNK2025.pdf", "syllabus": "deret aritmetika, aritmetika modular, bilangan bulat"}];
+    const CLUSTERS = [{"cluster_code": "TRACE", "cluster": "Tracing Program & Rekursi", "n": 52, "avg_difficulty": 3.4615384615384617, "pct": 28.10810810810811}, {"cluster_code": "NUMBER", "cluster": "Aritmetika & Teori Bilangan", "n": 24, "avg_difficulty": 2.7916666666666665, "pct": 12.972972972972974}, {"cluster_code": "GRAPH", "cluster": "Graf & Jaringan", "n": 20, "avg_difficulty": 3.3, "pct": 10.81081081081081}, {"cluster_code": "COUNT", "cluster": "Kombinatorika & Pencacahan", "n": 17, "avg_difficulty": 2.9411764705882355, "pct": 9.18918918918919}, {"cluster_code": "GRID", "cluster": "Simulasi Grid & CT", "n": 13, "avg_difficulty": 2.8461538461538463, "pct": 7.027027027027027}, {"cluster_code": "GAME", "cluster": "Game Theory & Invarian", "n": 10, "avg_difficulty": 2.9, "pct": 5.405405405405405}, {"cluster_code": "LOGIC", "cluster": "Logika & Himpunan", "n": 10, "avg_difficulty": 2.2, "pct": 5.405405405405405}, {"cluster_code": "ORDER", "cluster": "Urutan, Sorting & Partial Order", "n": 9, "avg_difficulty": 3.3333333333333335, "pct": 4.864864864864865}, {"cluster_code": "DP", "cluster": "DP & Tiling", "n": 8, "avg_difficulty": 4.0, "pct": 4.324324324324325}, {"cluster_code": "STRING", "cluster": "String & Encoding", "n": 8, "avg_difficulty": 2.375, "pct": 4.324324324324325}, {"cluster_code": "GEO", "cluster": "Geometri & Ruang Diskret", "n": 7, "avg_difficulty": 3.0, "pct": 3.783783783783784}, {"cluster_code": "GREEDY", "cluster": "Greedy & Optimisasi", "n": 3, "avg_difficulty": 3.0, "pct": 1.6216216216216217}, {"cluster_code": "SEARCH", "cluster": "Search & Decision Strategy", "n": 2, "avg_difficulty": 3.0, "pct": 1.0810810810810811}, {"cluster_code": "PROB", "cluster": "Probabilitas & Ekspektasi", "n": 2, "avg_difficulty": 2.0, "pct": 1.0810810810810811}];
+    const YEARS = [{"year": 2021, "n": 35, "avg_difficulty": 3.2, "pct": 18.91891891891892}, {"year": 2022, "n": 35, "avg_difficulty": 3.057142857142857, "pct": 18.91891891891892}, {"year": 2023, "n": 35, "avg_difficulty": 2.8285714285714287, "pct": 18.91891891891892}, {"year": 2024, "n": 40, "avg_difficulty": 3.175, "pct": 21.62162162162162}, {"year": 2025, "n": 40, "avg_difficulty": 3.175, "pct": 21.62162162162162}];
+    const DIFF = {"1": 1, "2": 44, "3": 83, "4": 51, "5": 6};
+    const CLUSTER_META = {"LOGIC": {"name": "Logika & Himpunan", "desc": "Boolean algebra, set constraints, truth conditions, and logical inference.", "syllabus": ["aljabar Boolean", "teori himpunan", "induksi/deduksi logika"]}, "COUNT": {"name": "Kombinatorika & Pencacahan", "desc": "Counting, pigeonhole, inclusion-exclusion, permutations, and discrete case analysis.", "syllabus": ["kombinatorika", "teori himpunan", "prinsip pencacahan"]}, "GRAPH": {"name": "Graf & Jaringan", "desc": "Connectivity, paths, trees, reachability, topological order, and network reasoning.", "syllabus": ["graf", "pohon", "keterjangkauan", "konektivitas"]}, "GREEDY": {"name": "Greedy & Optimisasi", "desc": "Local-choice optimization, scheduling, selection, and minimization/maximization arguments.", "syllabus": ["optimisasi", "pemecahan masalah", "greedy"]}, "NUMBER": {"name": "Aritmetika & Teori Bilangan", "desc": "Modular arithmetic, divisibility, digit patterns, gcd-style reasoning, and sequences.", "syllabus": ["deret aritmetika", "aritmetika modular", "bilangan bulat"]}, "STRING": {"name": "String & Encoding", "desc": "Lexicographic order, language-like encoding, subsequences, and pattern matching.", "syllabus": ["masukan/keluaran", "array", "subprogram", "string"]}, "GRID": {"name": "Simulasi Grid & CT", "desc": "Maze walking, board movement, finite-state simulation, and computational thinking on grids.", "syllabus": ["berpikir komputasional", "simulasi", "percabangan", "perulangan"]}, "TRACE": {"name": "Tracing Program & Rekursi", "desc": "Static execution of code, recursion, loop tracing, and state inspection.", "syllabus": ["array", "subprogram", "rekursi", "membaca algoritma"]}, "DP": {"name": "DP & Tiling", "desc": "State transition, tiling, dynamic programming, and constrained placement.", "syllabus": ["dynamic programming", "array", "optimisasi"]}, "GEO": {"name": "Geometri & Ruang Diskret", "desc": "Geometry, spatial arrangements, line/region counting, and geometric feasibility.", "syllabus": ["geometri", "bidang datar", "koordinat"]}, "GAME": {"name": "Game Theory & Invarian", "desc": "Adversarial play, invariants, collision arguments, and turn-based analysis.", "syllabus": ["optimisasi", "berpikir komputasional", "logika"]}, "PROB": {"name": "Probabilitas & Ekspektasi", "desc": "Probability, expectation-like reasoning, and random-process analysis.", "syllabus": ["teori himpunan", "kombinatorika", "probabilitas diskret"]}, "ORDER": {"name": "Urutan, Sorting & Partial Order", "desc": "Topological order, ranking, sorting, precedence constraints, and partial orders.", "syllabus": ["graf", "keterurutan", "kombinatorika"]}, "SEARCH": {"name": "Search & Decision Strategy", "desc": "Binary-search style questioning, information gain, and decision-tree reasoning.", "syllabus": ["berpikir komputasional", "optimisasi", "logika"]}};
+    const DIFF_LABEL = {1:'Sangat dasar',2:'Dasar',3:'Menengah',4:'Lanjut',5:'Sangat lanjut'};
+    const PDF_BY_YEAR = {
+      2025: 'https://osn.toki.id/data/OSNK2025.pdf',
+      2024: 'https://osn.toki.id/data/OSNK2024.pdf',
+      2023: 'https://osn.toki.id/data/OSNK2023.pdf',
+      2022: 'https://osn.toki.id/data/OSNK2022.pdf',
+      2021: 'https://osn.toki.id/data/KSNK2021.pdf'
+    };
 
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
 
-const palette = {
-  C1: '#38bdf8',
-  C2: '#22c55e',
-  C3: '#f59e0b',
-  C4: '#a855f7',
-  C5: '#f97316',
-  C6: '#fb7185',
-  C7: '#6366f1',
-  C8: '#0ea5e9',
-  C9: '#14b8a6',
-  C10: '#f43f5e',
-  C11: '#9333ea'
-};
+    function renderBars() {
+      const clusterWrap = document.getElementById('clusterBars');
+      const max = Math.max(...CLUSTERS.map(d => d.n));
+      clusterWrap.innerHTML = CLUSTERS.map(d => {
+        const width = (d.n / max) * 100;
+        return `
+          <div class="bar-row">
+            <div>
+              <div style="font-weight:650">${escapeHtml(d.cluster)}</div>
+              <div class="small">${d.n} soal • ${d.pct.toFixed(1)}%</div>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:${width}%"></div></div>
+            <div class="small">μ ${Number(d.avg_difficulty).toFixed(2)}</div>
+            <div class="small">${d.cluster_code}</div>
+          </div>`;
+      }).join('');
 
-const $ = (sel) => document.querySelector(sel);
-const tableBody = $('#tableBody');
-const clusterBars = $('#clusterBars');
-const yearBars = $('#yearBars');
-const topList = $('#topList');
+      const dWrap = document.getElementById('difficultyBars');
+      const dmax = Math.max(...Object.values(DIFF));
+      dWrap.innerHTML = Object.keys(DIFF).sort((a,b)=>a-b).map(k => {
+        const width = (DIFF[k] / dmax) * 100;
+        return `
+          <div class="bar-row">
+            <div>
+              <div style="font-weight:650">Level ${k} — ${DIFF_LABEL[k]}</div>
+              <div class="small">${DIFF[k]} soal</div>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:${width}%"></div></div>
+            <div class="small">${((DIFF[k]/QUESTIONS.length)*100).toFixed(1)}%</div>
+            <div class="small"></div>
+          </div>`;
+      }).join('');
+    }
 
-const filters = {
-  search: '',
-  year: 'all',
-  cluster: 'all',
-  sortBy: 'year-asc'
-};
+    function buildYearSelect() {
+      const sel = document.getElementById('yearFilter');
+      const years = [...new Set(QUESTIONS.map(q => q.year))].sort((a,b)=>b-a);
+      sel.innerHTML = `<option value="all">Semua tahun</option>` + years.map(y => `<option value="${y}">${y}</option>`).join('');
+    }
 
-function fmtPct(n) {
-  return (n * 100).toFixed(1) + '%';
-}
+    function buildClusterSelect() {
+      const sel = document.getElementById('clusterFilter');
+      const names = [...new Set(QUESTIONS.map(q => q.cluster))].sort();
+      sel.innerHTML = `<option value="all">Semua klaster</option>` + names.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+    }
 
-function difficultyLabel(d) {
-  if (d < 2.5) return 'Sangat mudah';
-  if (d < 3.2) return 'Mudah';
-  if (d < 3.8) return 'Sedang';
-  if (d < 4.4) return 'Sulit';
-  return 'Sangat sulit';
-}
+    function renderYearSections(items) {
+      const container = document.getElementById('yearContainer');
+      const byYear = new Map();
+      items.forEach(q => {
+        if (!byYear.has(q.year)) byYear.set(q.year, []);
+        byYear.get(q.year).push(q);
+      });
+      const years = [...byYear.keys()].sort((a,b)=>b-a);
 
-function buildSelects() {
-  const yearSel = $('#yearFilter');
-  yearSel.innerHTML = '<option value="all">Semua tahun</option>' +
-    Object.keys(yearNames).sort((a,b)=>b-a).map(y => `<option value="${y}">${yearNames[y]}</option>`).join('');
-  const clusterSel = $('#clusterFilter');
-  clusterSel.innerHTML = '<option value="all">Semua cluster</option>' +
-    Object.entries(clusterNames).map(([k,v]) => `<option value="${k}">${k} — ${v}</option>`).join('');
-}
+      container.innerHTML = years.map(year => {
+        const yearItems = byYear.get(year);
+        const avg = yearItems.reduce((a,b) => a + b.difficulty, 0) / yearItems.length;
+        const pdf = PDF_BY_YEAR[year];
+        return `
+          <details class="year" open data-year="${year}">
+            <summary>
+              <div class="year-left">
+                <span class="year-badge">${year}</span>
+                <div>
+                  <div style="font-weight:750">${yearItems.length} soal</div>
+                  <div class="year-meta">Rata-rata kesulitan: ${avg.toFixed(2)} • Klik tahun untuk membuka PDF</div>
+                </div>
+              </div>
+              <a class="year-link" href="${pdf}" target="_blank" rel="noopener noreferrer">Buka PDF tahun ini</a>
+            </summary>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width:110px">Tahun / Soal</th>
+                    <th>Judul / Catatan</th>
+                    <th style="width:240px">Klaster</th>
+                    <th style="width:150px">Kesulitan</th>
+                    <th>Sylabus anchor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${yearItems.map(q => `
+                    <tr data-row="1" data-year="${q.year}" data-cluster="${escapeHtml(q.cluster)}" data-search="${escapeHtml((q.title + ' ' + q.note + ' ' + q.cluster + ' ' + q.cluster_code + ' ' + q.year + ' ' + q.q + ' ' + q.syllabus).toLowerCase())}">
+                      <td>
+                        <a class="q-link" href="${q.pdf}" target="_blank" rel="noopener noreferrer">${q.year}</a>
+                        <span class="muted">/</span>
+                        <a class="q-link" href="${q.pdf}" target="_blank" rel="noopener noreferrer">${q.q}</a>
+                      </td>
+                      <td>
+                        <div class="title-cell">${escapeHtml(q.title)}</div>
+                        <div class="small">${escapeHtml(q.note)}</div>
+                      </td>
+                      <td>
+                        <span class="pill">${escapeHtml(q.cluster)}</span><br/>
+                        <span class="small">${escapeHtml(q.cluster_desc)}</span>
+                      </td>
+                      <td>
+                        <span class="diff d${q.difficulty}">Level ${q.difficulty} • ${q.difficulty_label}</span>
+                      </td>
+                      <td class="small">${escapeHtml(q.syllabus)}</td>
+                    </tr>`).join('')}
+                </tbody>
+              </table>
+            </div>
+          </details>`;
+      }).join('');
+    }
 
-function applyFilters() {
-  let out = data.filter(x => {
-    const q = filters.search.trim().toLowerCase();
-    const hitSearch = !q || [x.title, x.display, x.cluster, String(x.no), String(x.year), x.clusterLabel].join(' ').toLowerCase().includes(q);
-    const hitYear = filters.year === 'all' || String(x.year) === filters.year;
-    const hitCluster = filters.cluster === 'all' || x.cluster === filters.cluster;
-    return hitSearch && hitYear && hitCluster;
-  });
+    function applyFilters() {
+      const search = document.getElementById('search').value.trim().toLowerCase();
+      const year = document.getElementById('yearFilter').value;
+      const cluster = document.getElementById('clusterFilter').value;
+      const sort = document.getElementById('sortFilter').value;
 
-  out.sort((a,b) => {
-    if (filters.sortBy === 'year-asc') return a.year - b.year || a.no - b.no;
-    if (filters.sortBy === 'year-desc') return b.year - a.year || a.no - b.no;
-    if (filters.sortBy === 'no-asc') return a.no - b.no || b.year - a.year;
-    if (filters.sortBy === 'difficulty-desc') return b.difficulty - a.difficulty || b.year - a.year || a.no - b.no;
-    if (filters.sortBy === 'difficulty-asc') return a.difficulty - b.difficulty || a.year - b.year || a.no - b.no;
-    return a.year - b.year || a.no - b.no;
-  });
-  return out;
-}
+      let items = QUESTIONS.slice();
+      if (year !== 'all') items = items.filter(q => String(q.year) === year);
+      if (cluster !== 'all') items = items.filter(q => q.cluster === cluster);
+      if (search) {
+        items = items.filter(q => (q.title + ' ' + q.note + ' ' + q.cluster + ' ' + q.syllabus + ' ' + q.year + ' ' + q.q).toLowerCase().includes(search));
+      }
 
-function renderTable() {
-  const out = applyFilters();
-  tableBody.innerHTML = out.map(x => `
-    <tr>
-      <td>
-        <a class="pdf-link" href="${pdfUrlForYear(x.year)}" target="_blank" rel="noopener noreferrer">
-          <strong>${x.year}</strong>
-        </a>
-        <div class="muted">${x.yearLabel}</div>
-      </td>
-      <td>
-        <a class="pdf-link" href="${pdfUrlForYear(x.year)}" target="_blank" rel="noopener noreferrer">
-          Soal ${x.no}
-        </a>
-      </td>
-      <td>${x.title}</td>
-      <td><span class="badge ${x.cluster.toLowerCase()}">${x.cluster} • ${x.clusterLabel}</span></td>
-      <td>
-        <strong>${x.difficulty.toFixed(1)}</strong><br/>
-        <span class="muted">${difficultyLabel(x.difficulty)}</span>
-      </td>
-    </tr>
-  `).join('');
+      if (sort === 'difficulty_desc') items.sort((a,b) => b.difficulty - a.difficulty || b.year - a.year || a.q - b.q);
+      else if (sort === 'difficulty_asc') items.sort((a,b) => a.difficulty - b.difficulty || b.year - a.year || a.q - b.q);
+      else if (sort === 'year_q') items.sort((a,b) => b.year - a.year || a.q - b.q);
+      else if (sort === 'cluster') items.sort((a,b) => a.cluster.localeCompare(b.cluster) || b.year - a.year || a.q - b.q);
 
-  if (!out.length) {
-    tableBody.innerHTML = `<tr><td colspan="5" class="muted">Tidak ada soal yang cocok dengan filter saat ini.</td></tr>`;
-  }
-}
+      renderYearSections(items);
+      document.querySelectorAll('details.year').forEach(d => d.open = true);
+    }
 
-function renderClusterBars() {
-  const total = data.length;
-  const items = Object.entries(clusterNames).map(([k, name]) => {
-    const c = data.filter(x => x.cluster === k).length;
-    return [k, name, c, c/total];
-  }).filter(([, , c]) => c > 0).sort((a,b)=>b[2]-a[2]);
-  const max = Math.max(...items.map(x => x[2]));
-  clusterBars.innerHTML = items.map(([k, name, count, pct]) => `
-    <div class="bar-row">
-      <div class="bar-name"><strong>${k}</strong> — ${name}</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${(count/max)*100}%; background: linear-gradient(90deg, ${palette[k]}, rgba(255,255,255,.2));"></div></div>
-      <div class="bar-value">${count} (${fmtPct(pct)})</div>
-    </div>
-  `).join('');
+    function bind() {
+      ['search','yearFilter','clusterFilter','sortFilter'].forEach(id => {
+        document.getElementById(id).addEventListener('input', applyFilters);
+        document.getElementById(id).addEventListener('change', applyFilters);
+      });
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        document.getElementById('search').value = '';
+        document.getElementById('yearFilter').value = 'all';
+        document.getElementById('clusterFilter').value = 'all';
+        document.getElementById('sortFilter').value = 'default';
+        applyFilters();
+      });
+    }
 
-  const top = items[0];
-  $('#topCluster').textContent = top[0];
-  $('#topCluster').nextElementSibling.textContent = top[1];
-}
-
-function renderYearBars() {
-  const total = data.length;
-  const items = Object.entries(yearNames).map(([y, name]) => {
-    const c = data.filter(x => String(x.year) === String(y)).length;
-    return [y, name, c, c/total];
-  }).sort((a,b)=>b[0]-a[0]);
-  const max = Math.max(...items.map(x => x[2]));
-  yearBars.innerHTML = items.map(([y, name, count, pct]) => `
-    <div class="bar-row">
-      <div class="bar-name"><strong>${y}</strong> — ${name}</div>
-      <div class="bar-track"><div class="bar-fill year" style="width:${(count/max)*100}%;"></div></div>
-      <div class="bar-value">${count} soal</div>
-    </div>
-  `).join('');
-}
-
-function renderTopList() {
-  const top = [...data].sort((a,b)=>b.difficulty-a.difficulty || b.year-a.year || a.no-b.no).slice(0,3);
-  const labels = ['Paling menantang', 'Sangat tinggi', 'Tinggi'];
-  topList.innerHTML = top.map((x, i) => `
-    <div class="mini">
-      <div class="badge ${x.cluster.toLowerCase()}">${labels[i]}</div>
-      <div class="n">
-        <a class="pdf-link" href="${pdfUrlForYear(x.year)}" target="_blank" rel="noopener noreferrer">${x.year} • Soal ${x.no}</a>
-      </div>
-      <div class="sub">${x.title}<br/><span class="muted">${x.cluster} — ${x.clusterLabel}</span></div>
-      <div class="sub"><strong>Difficulty:</strong> ${x.difficulty.toFixed(1)} / 5</div>
-    </div>
-  `).join('');
-}
-
-function bind() {
-  $('#search').addEventListener('input', e => { filters.search = e.target.value; renderTable(); });
-  $('#yearFilter').addEventListener('change', e => { filters.year = e.target.value; renderTable(); });
-  $('#clusterFilter').addEventListener('change', e => { filters.cluster = e.target.value; renderTable(); });
-  $('#sortBy').addEventListener('change', e => { filters.sortBy = e.target.value; renderTable(); });
-  $('#resetBtn').addEventListener('click', () => {
-    filters.search = '';
-    filters.year = 'all';
-    filters.cluster = 'all';
-    filters.sortBy = 'year-asc';
-    $('#search').value = '';
-    $('#yearFilter').value = 'all';
-    $('#clusterFilter').value = 'all';
-    $('#sortBy').value = 'year-asc';
-    renderTable();
-  });
-}
-
-buildSelects();
-renderClusterBars();
-renderYearBars();
-renderTopList();
-bind();
-renderTable();
-</script>
+    renderBars();
+    buildYearSelect();
+    buildClusterSelect();
+    renderYearSections(QUESTIONS);
+    bind();
+  </script>
 </body>
 </html>
